@@ -1,0 +1,284 @@
+"""
+This is a script for the SPT autoprocessor. It is intended to be used by 
+the autoprocess_spt_data module. 
+
+This script creates intermediate data files from observations of the SPT deep field, ra23h30dec-55.
+
+The processing proceeds as follows:
+-Read data at full sampling rate. Check for glitches and jumps, marking bad scans in individual timestreams.
+-Apply a polynomial filter to flatten out the data and remove 1/f noise.
+-Measure the RMS of each scan, record the result, and mark scans with RMS too low or too high.
+-Re-read data with a factor of 4 downsampling, and offline pointing applied.
+-Load noise_in_obs auxdata for this observation or create and store it if it doesn't already exist.
+-Load other auxdata which might be useful.
+-Mark timestreams failing calibrator, elnod, etc. cuts.
+-Calibrate timestreams in T_CMB.
+-Write data and stub IDFs.
+
+Processing (including creation of a new noise_in_obs file) takes just under 20 minutes for one observation.
+
+   Change Log:
+2013-08-16 NDH modified to produce cluster finding idfs (no notch filter)
+"""
+
+# __metaclass__ = type
+# __author__    = ["Stephen Hoover"]
+# __email__     = ["hoover@kicp.uchicago.edu"]
+# __version__   = "1.01"
+# __date__      = "2013-04-29"
+
+import os
+from script_defaults import * # This module defines defaults for various variables.
+from sptpol_software.autotools import logs, files
+from sptpol_software.analysis import quicklook, processing
+from sptpol_software.util.tools import struct, getClass
+from sptpol_software.data.readout import SPTDataReader
+from sptpol_software.util.time import SptDatetime
+from sptpol_software.util.files import fillAuxiliaryData
+from sptpol_software.autotools.autoprocess_cmb_data import findAndFlagGlitches
+from sptpol_software.data.mapidf import MapIDF
+
+my_name = 'idf'
+source_name = 'ra23h30dec-55'
+nscans_min = 1 # No minimum
+nscans_max = 0 # 0 max means no limit on the max number of scans.
+
+use_fits = False # FITS output doesn't work with IDFs.
+verbose = True # Overall script setting.
+
+directories['output_dir_idf'] = os.path.join(<path to nicks directory>, source_name)
+directories['output_dir_data'] = os.path.join(directories['output_dir_idf'],'data')
+directories['output_dir_sim'] = os.path.join(directories['output_dir_idf'],'sim')
+
+
+analysis_function = None
+analysis_function_kwargs = {}
+
+# fillAuxiliaryData: Read in other auxdata so that it'll be handy if we need it in the IDF.
+# Then notch filter, get (or create) the noise measurement, record bolometer weights, and  
+# call get goodBolos with all the flags we might want so the flags are added. 
+# (Sometimes a flag like 'bad_calibrator' is added the first time you check for goodness 
+# with a certain cut.)
+## NB: DEFINE preprocessing_function AFTER WE DEFINE fillNoiseInObs, SO WE CAN INCLUDE THAT FUNCTION IN THE LIST.
+#preprocessing_function = [fillAuxiliaryData, 
+#                          processing.notchFilter,
+#                          fillNoiseInObs,
+#                          processing.addBoloWeights,
+#                          processing.getGoodBolos,
+#                          processing.timestreamWattsToKCMB]
+preprocessing_function_kwargs = [
+                                 {'obs_types':['elnod','calibrator','source_rcw38'], 'verbose':True}, # fillAuxiliaryData
+                                 {'n_harms':9, 'use_cuts':False, 'add_cuts':True, 'use_found':False, 
+                                  'notching':'zero', 'verbose':True}, # notchFilter
+                                 {}, # fillNoiseInObs
+                                 {'verbose':True}, # timestreamWattsToKCMB
+                                 {'noise_in_tcmb':False, 'match_inpixel_weights':False, 
+                                  'use_noise_in_obs':True, 'verbose':True}, # addBoloWeights
+                                 {'good_bolos':['flagged','timestream', 'calibrator', # getGoodBolos
+                                                'elnod','has_pointing','has_polcal',
+                                                'full_pixel','source_response','no_c4',
+                                                'has_calibration','good_timestream_weight']}
+                                 ]
+
+# We always read out with SPTDataReader.readData, so no need to specify a function for that.
+readout_kwargs = {'timestream_units':'Watts', # Convert to T_CMB in preprocessing functions.
+                  'correct_global_pointing':True,
+                  'downsample_bolodata':4,
+                  'project_iq':True,
+                  'exception_on_no_iq':True}
+
+
+
+def hasNoiseInObsLockfile(time_interval, raise_exception=False):
+    """
+    Check if another process is creating a noise_in_obs auxdata file.
+    """
+    noise_script = getClass('sptpol_software.autotools.autoprocessing_scripts.'+('noise_in_%s_obs' % source_name))
+    
+    noise_filename_out = noise_script.getFilenameOut(time_interval)
+    if files.hasLockFile(noise_filename_out):
+        if raise_exception:
+            raise ValueError("\n     ----Another process appears to be making noise_in_obs data from %s to %s. Continuing.\n"
+                             % (time_interval[0].archive, time_interval[1].archive))
+        else:
+            return True
+    else:
+        return False
+
+def fillNoiseInObs(data):
+    """
+    Looks for the noise data calculated from this observation. If it doesn't exist yet,
+    it calculates it and saves the result. 
+    
+    This needs to be run after notch filtering.
+    """
+    time_interval = (data.data['header']['start_date'], data.data['header']['stop_date'])
+    
+    # Make sure that we have noise auxdata files specific to this observation. If it doesn't exist, create it.
+    try:
+        fillAuxiliaryData(data, obs_types='noise_in_obs', skip_missing=False,
+                          from_data_obs=True, overwrite=True, verbose=verbose)
+        if verbose: print "Found this observation's noise data in the auxdata files."
+    except IOError:
+        if verbose: print "Calculating noise in this observation and writing it to disk."
+        noise_script = getClass('sptpol_software.autotools.autoprocessing_scripts.'+('noise_in_%s_obs' % source_name))
+        
+        # We've got to manage the lock files ourselves here.
+        noise_filename_out = noise_script.getFilenameOut(time_interval)
+        hasNoiseInObsLockfile(time_interval, raise_exception=True) # Check for a lock file, raise exception if present.
+
+        files.createLockFile(noise_filename_out, verbose=verbose)
+        try:
+            for func, kwargs in zip(noise_script.preprocessing_function, noise_script.preprocessing_function_kwargs):
+                if func is processing.notchFilter:
+                    # Assume the notch filtering has already been applied, and don't redo it.
+                    continue
+                func(data, **kwargs)
+            
+            # Run the noise analysis and write the result.
+            noise_analysis_result = noise_script.analysis_function(data, **noise_script.analysis_function_kwargs)
+            filename_out = noise_script.writeData(data, time_interval)
+            if verbose: print "Wrote noise information for this observation to %s ." % filename_out
+        finally:
+            # Done making the noise auxdata. Remove the lock file and move on.
+            files.removeLockFile(noise_filename_out, verbose=verbose)
+        
+#####################################################################
+#####################################################################
+# DEFINITION MOVED FROM TOP OF SCRIPT SO I CAN INCLUDE fillNoiseInObs
+preprocessing_function = [fillAuxiliaryData, 
+                          processing.notchFilter,
+                          fillNoiseInObs,
+                          processing.timestreamWattsToKCMB,
+                          processing.addBoloWeights,
+                          processing.getGoodBolos]
+#####################################################################
+
+def extractFlagsAndBoloRMS(data):
+    """
+    Pulls out flags and data which may have been written by filtering functions.
+    Specifically, this function will read from each scan the "flags", the "is_bad_channel", and the "bolo_rms".
+    From each Timestream, it will read the "flags".
+    
+    OUTPUT
+        A 2-tuple of flags, bolo_rms, where "flags" is a dictionary with "ts_flags" and "scan_flags".
+    """
+    if verbose: print("Saving bolo and scan flags, as well as bolo_rms.")
+    scan_flags = []
+    for i in range(0,len(data.data['scan'])):
+        scan_flags.append([data.data['scan'][i].flags,data.scan[i].is_bad_channel])
+
+    ts_flags = []
+    for i in range(0,len(data[0])):
+        ts_flags.append(data[0][i].flags)
+
+    flags ={}
+    flags['ts_flags'] = ts_flags
+    flags['scan_flags'] = scan_flags
+
+    bolo_rms = []
+    for scan in data.data['scan']:
+        bolo_rms.append(scan.bolo_rms)
+
+    return flags, bolo_rms
+
+
+def getTimeInterval():
+    """
+    Replace generic getTimeInterval with one that calls logs.readSourceScans instead.
+    """
+    return logs.readSourceScanTimes(autoprocess_start_date, autoprocess_stop_date, source_name,
+                                    nscans_min=nscans_min, nscans_max=nscans_max,
+                                    log_summary_dir=directories['log_summary_dir'])
+    
+
+def getFilenameOut(time_interval):
+    """
+    Replace generic getFilenameOut. We'll end up writing four files: data and stub IDFs for each of the two bands.
+    This function only needs to give one of them, however. The actual data-writing function will 
+    figure out all of the file names and paths that it needs.
+    """
+    try:
+        start_time = time_interval[0]
+    except TypeError:
+        start_time = time_interval
+    filename = "%s_%s_%s_150ghz.%s" % (source_name, my_name, start_time.file, ('fits' if use_fits else 'hdf5'))
+    return os.path.join(directories['output_dir_data'], filename)
+
+
+def analyzeData(time_interval):
+    """
+    More complicated than the generic function. Reads out data at full samplerate, finds glitches
+    and calculates scan RMSes. Then re-reads data, downsamples, and performs
+    some processing (including notch filtering). In this second step, we also (if necessary) 
+    compute noise levels.
+    """
+    # Before starting, check if another process is creating a noise_in_obs auxdata file.
+    # Stop now if so. We should never actually hit this unless a separate noise_in_obs process 
+    # is running. Otherwise the IDF script's lockfile would prevent us from getting this far. 
+    hasNoiseInObsLockfile(time_interval, raise_exception=True) # Check for a lock file, raise exception if present.
+
+    # First, read out the data at the full sample rate, and find timestream glitches.
+    # We're only looking at the timestreams, so no need to apply the offlne pointing model.
+    data = SPTDataReader(time_interval[0], time_interval[1], 
+                         experiment=experiment,
+                         master_configfile=master_config)
+    data.readData(obstype=my_name, correct_global_pointing=False, timestream_units='T_CMB', 
+                  downsample_bolodata=False, project_iq=True, exception_on_no_iq=True)
+    
+    data.cuts.flagTimestreamJumps(data, timestream_ids_to_check=None, verbose=False)
+    processing.cFiltering(data, poly_order=4, set_scan_bolometer_flags=False,
+                          set_scan_flags=False, verbose=verbose)
+    data.cuts.timestreamRMSCut(data, verbose=verbose)
+        
+    # Pull out the information we just calculated, and re-store it after we re-read data.
+    flags, bolo_rms = extractFlagsAndBoloRMS(data)
+        
+    # Now re-read the data for real. We'll do downsampling here, and use the full offline pointing model.
+    data = SPTDataReader(time_interval[0], time_interval[1], 
+                         experiment=experiment,
+                         master_configfile=master_config)
+    data.readData(obstype=my_name, **readout_kwargs)
+        
+    # Transfer the flags created by findAndFlagGlitches back into the data structure.
+    for scan, this_flags, this_bolo_rms in zip(data.data['scan'], flags['scan_flags'], bolo_rms):
+        scan.flags =  this_flags[0]
+        scan.is_bad_channel = this_flags[1]
+        scan.bolo_rms = this_bolo_rms
+    for i in range(0,len(data[0])):
+        data[0][i].flags = flags['ts_flags'][i]
+
+    # This fills some auxdata, does notch filtering, creates noise_in_obs data if necessary, 
+    # stores timestream weights, sets some flags relevant for cuts, and recalibrates to 
+    # T_CMB (read out in Watts for benefit of noise calculation).
+    for func, kwargs in zip(preprocessing_function, preprocessing_function_kwargs):
+        func(data, **kwargs)
+        
+    return data
+
+def writeData(data, time_interval, overwrite=False):
+    """
+    Writes out four files: Data and stub (for simulation) files for each of the bands in these data.
+    Does not support writing to any format other than HDF5.
+    """
+    # Create filenames.
+    try:
+        start_time = time_interval[0]
+    except TypeError:
+        start_time = time_interval
+        
+    # Create output directories if they don't already exist.
+    if not os.path.exists(directories['output_dir_data']): os.makedirs(directories['output_dir_data'])
+    if not os.path.exists(directories['output_dir_sim']): os.makedirs(directories['output_dir_sim'])
+    
+    # Output IDFs separately for each frequency band.
+    for band in data.rec.bands:
+        filename = "%s_%s_%s_%03ighz.%s" % (source_name, my_name, start_time.file, int(band), ('fits' if use_fits else 'h5'))
+        
+        idf = MapIDF(data, freq=int(band))
+        
+        # Write an IDF with all the data, and a stub (no bolometer data) for the sims.
+        idf.writeToHDF5(os.path.join(directories['output_dir_data'], filename), as_stub=False, overwrite=overwrite)
+        idf.writeToHDF5(os.path.join(directories['output_dir_sim'], filename), as_stub=True, overwrite=overwrite)
+    
+    return getFilenameOut(time_interval)
