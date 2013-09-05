@@ -1,3 +1,5 @@
+#!/sptpol_root/bin/python
+
 import numpy as np
 import matplotlib.pyplot as pl
 
@@ -14,7 +16,7 @@ hard coded notches:
  [4.7341, 4.74501]]
 '''
 
-def pointSource(t, beam_width = .0311):
+def pointSource(t, beam_width = .0311 * 2):
     return np.exp(- t*t / (2 * beam_width*beam_width))
 
 def zeroTF(transfer_function, freq, line, width, neg_freq = True):
@@ -25,7 +27,7 @@ def zeroTF(transfer_function, freq, line, width, neg_freq = True):
         transfer_function[inds] = 0
 
 def notchFilter(lines = [1.54, 1.58], n_harm = 9, widths = [.01, .01], 
-                neg_freq = True, plot = False):
+                neg_freq = True, plot = False, max_freq = 300):
     t = np.linspace(-20, 20, num = 40*191)
     tstream = pointSource(t)
     fourier = np.fft.fft(tstream, 2**18)
@@ -33,10 +35,12 @@ def notchFilter(lines = [1.54, 1.58], n_harm = 9, widths = [.01, .01],
     trans_fn = np.ones(len(fourier))
 
     for l, w in zip(lines, widths):
+        if l >= max_freq: continue
         w /= 2
         zeroTF(trans_fn, freq, l, w, neg_freq)
         for i in np.arange(n_harm) + 2:
             l *= i
+            if l >= max_freq: continue
             zeroTF(trans_fn, freq, l, w, neg_freq)
            
     new_fourier = fourier * trans_fn
@@ -64,13 +68,13 @@ if __name__ == '__main__':
     current_widths += [0.0077610214558918589, 0.010909999999999975]
 
     current_kwargs = {'lines': current_lines, 'widths': current_widths,
-                      'n_harm': 9, neg_freq = True}
+                      'n_harm': 9, 'neg_freq': True}
 
     proposed_kwargs = {'lines': [1.535, 1.580], 'widths': [.0035, .005],
-                       'n_harm': 0, 'neg_freq': True}
+                       'n_harm': 3, 'neg_freq': True, 'max_freq': 4.0}
 
     t, curr = notchFilter(**current_kwargs)
-    t, curr_neg = notchFilter(neg_freq = True, **current_kwargs)
+    t, curr_neg = notchFilter(**current_kwargs)
     t, prop = notchFilter(**proposed_kwargs)
     tstream = pointSource(t)
 
