@@ -26,11 +26,12 @@ def zeroTF(transfer_function, freq, line, width, neg_freq = True):
         inds = np.argwhere((-line - width < freq) & (-line + width > freq))
         transfer_function[inds] = 0
 
-def notchFilter(lines = [1.54, 1.58], n_harm = 9, widths = [.01, .01], 
-                neg_freq = True, plot = False, max_freq = 300):
-    t = np.linspace(-20, 20, num = 40*191)
-    tstream = pointSource(t)
-    fourier = np.fft.fft(tstream, 2**18)
+def notchFilter(t, tstream = None,
+                lines = [1.54, 1.58], n_harm = 9, widths = [.01, .01], 
+                neg_freq = True, plot = False, max_freq = 300, padto = 2**18):
+    if tstream is None:
+        tstream = pointSource(t)
+    fourier = np.fft.fft(tstream, padto)
     freq = np.fft.fftfreq(len(fourier), 1./191)
     trans_fn = np.ones(len(fourier))
 
@@ -49,7 +50,7 @@ def notchFilter(lines = [1.54, 1.58], n_harm = 9, widths = [.01, .01],
         pl.figure()
         pl.plot(t, new_tstream[:len(t)] - tstream)
         pl.show()
-    return t, new_tstream[:len(t)]
+    return new_tstream[:len(t)]
 
 if __name__ == '__main__':
     current_lines = []
@@ -73,9 +74,10 @@ if __name__ == '__main__':
     proposed_kwargs = {'lines': [1.535, 1.580], 'widths': [.0035, .005],
                        'n_harm': 3, 'neg_freq': True, 'max_freq': 4.0}
 
-    t, curr = notchFilter(**current_kwargs)
-    t, curr_neg = notchFilter(**current_kwargs)
-    t, prop = notchFilter(**proposed_kwargs)
+    t = np.linspace(-20, 20, num = 40*191)
+    curr = notchFilter(t, **current_kwargs)
+    curr_neg = notchFilter(t, **current_kwargs)
+    prop = notchFilter(t, **proposed_kwargs)
     tstream = pointSource(t)
 
     # t, noneg = notchFilter(plot = True)

@@ -1,4 +1,7 @@
 *.py[cod]
+*.pkl
+*.np[yz]
+*.png
 
 # C extensions
 *.so
@@ -33,3 +36,6 @@ nosetests.xml
 .mr.developer.cfg
 .project
 .pydevproject
+
+# emacs backups
+*~

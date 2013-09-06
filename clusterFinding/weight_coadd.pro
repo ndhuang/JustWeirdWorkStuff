@@ -12,13 +12,13 @@ for i = 0, n_elements(fits_bundles) - 1 do begin
 
 endfor
 good=where(finite(coadd_map),complement=bad)
-if bad ne -1 then coadd_map(bad)=0
-if good eq 0 then begin  
+if n_elements(bad) lt 1 then coadd_map(bad)=0
+if n_elements(good) lt 1 then begin  
    print, 'Borked!!!!' 
    stop
 endif
 
-coadd_map[ind] /= weight_map[ind]
+coadd_map[good] /= weight_map[good]
 save,fits_bundles,coadd_map,weight_map,filename=coadd_output_file
 CREATE_APODIZATION_MASKS, weight_map, mask_output_file, threshold=.8
 pad_mask, 4096, 4096, mask_output_file
