@@ -20,11 +20,16 @@ if n_elements(good) lt 1 then begin
 endif
 
 coadd_map[good] /= weight_map[good]
-coadd_struct = {map: coadd_map, weight: weight_map, files: fits_bundles}
+;; pad!
+coadd = dblarr(4096, 4096)
+weight = dblarr(4096, 4096)
+coadd[348:3399+348,348:3399+348] = coadd_map
+weight[348:3399+348,348:3399+348] = weight_map
+coadd_struct = {map: coadd, weight: weight, files: fits_bundles}
 create_spt_fits_file, coadd_output_file
 add_bintab_to_fits, coadd_output_file, coadd_struct, 'coadd'
 maps = dblarr(4096, 4096, 2)
-maps[0:3399,0:3399,1] = coadd_map
+maps[*, *, 1] = coadd
 save, maps, filename = coadd_save_file
 CREATE_APODIZATION_MASKS, weight_map, mask_output_file, threshold=.8
 pad_mask, 4096, 4096, mask_output_file
