@@ -10,7 +10,8 @@ if keyword_set(stopit) then stop
 
 ptsrcfile='/home/ndhuang/spt_code/sptpol_software/config_files/ptsrc_config_ra23h30dec-55_liz20121012.txt'
 
-radec0=[352.5, -55]
+;;radec0=[352.5, -55]
+radec0 = [352.515,-55]
 
 cmbfile='/home/ndhuang/code/clusterFinding/params/ml_l10000_acc2_lensedCls.dat'
 

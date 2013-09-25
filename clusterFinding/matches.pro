@@ -1,11 +1,11 @@
 pro matches
-cluster_dir='/data39/ndhuang/clusters/ra23h30dec-55/cluster_out/'
+cluster_dir='/data39/ndhuang/clusters/ra23h30dec-55/run1/cluster_out/'
 sz_dir = 'sptsz/'
 data_fitsfile = 'clusters_radec_ra23h30dec-55.fits'
 mismatch_file = 'mismatch_inds.bin'
 match_file = 'cluster_matches.sav'
-magic_sz_file = '/home/ndhuang/code/clusterFinding/sz_clusters.txt'
-confirmed_sz_file = '/home/ndhuang/code/clusterFinding/confirmed_sz_clusters.txt'
+magic_sz_file = '/home/ndhuang/code/clusterFinding/sz_data/sz_clusters.txt'
+confirmed_sz_file = '/home/ndhuang/code/clusterFinding/sz_data/confirmed_sz_clusters.txt'
 
 ;; sptsz = read_spt_fits(cluster_dir + sz_dir + data_fitsfile)
 restore, cluster_dir + 'clusters_ra23h30dec-55.sav'
@@ -17,14 +17,14 @@ n_pol = n_elements(sptpol.out.xpeak)
 ;; sz_dec = dblarr(n_sz)
 ;; pix2ang_proj0, [3360, 3360], sz_center, .25, sz_ra, sz_dec, xpix = sptsz.out.xpeak, ypix = sptsz.out.ypeak
 
-pol_center = [352.5, -55.0]
+pol_center = [352.515, -55.0]
 pol_ra = dblarr(n_elements(sptpol.out.xpeak))
 pol_dec = dblarr(n_elements(sptpol.out.xpeak))
 pix2ang_proj0, [4096, 4096], pol_center, .25, pol_ra, pol_dec, xpix = sptpol.out.xpeak, ypix = sptpol.out.ypeak
 
 ;; get sz clusters from the magic file
-;; readcol, magic_sz_file, junk, sz_ra, sz_dec, sz_sig, format = 'A,D,D,D'
-readcol, confirmed_sz_file, name, sz_ra, sz_dec, format = 'A,D,D'
+readcol, magic_sz_file, name, sz_ra, sz_dec, sz_sig, format = 'A,D,D,D'
+;; readcol, confirmed_sz_file, name, sz_ra, sz_dec, format = 'A,D,D'
 n_sz = n_elements(sz_ra)
 
 wrap = where(sz_ra  lt 180, count)
@@ -51,11 +51,9 @@ for i=0, n_pol - 1 do begin
       mismatches[i] = i
    endif else begin
       sz_matches[dist_ind] = 1
-      ;; polmatch_sig[i] = sptpol.out[i].peaksig
-      ;; szmatch_sig[dist_ind] = sz_sig[dist_ind]
-      ;; print, pol_ra[i], ' & ', pol_dec[i], ' & ', r_core, ' & ',
-      ;; sptpol.out[i].peaksig, ' & ', sz_sig[dist_ind], ' & ',
-      ;; dist*60, '\\'
+      polmatch_sig[i] = sptpol.out[i].peaksig
+      szmatch_sig[dist_ind] = sz_sig[dist_ind]
+      print, pol_ra[i], ' & ', pol_dec[i], ' & ', r_core, ' & ', sptpol.out[i].peaksig, ' & ', sz_sig[dist_ind], ' & ', dist*60, '\\'
    endelse
    for j = 0, n_sz - 1 do sz_dists[j] = min([distarr[j], sz_dists[j]])
 endfor
