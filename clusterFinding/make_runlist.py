@@ -3,7 +3,7 @@ from datetime import datetime
 import numpy as np
 import IPython
 
-dat = dict(np.load('/scratch/work/mapcuts/map_cuts.npz'))
+dat = dict(np.load('/home/ndhuang/code/clusterFinding/map_cuts.npz'))
 n_maps = len(dat['rms'])
 inds = np.flatnonzero(dat['rms'] != 0)
 for k in dat:
@@ -45,11 +45,11 @@ good150 = np.nonzero((dat150['rms'] <= 3 * med_150rms) &
 
 print 'Fraction of maps kept: %.3f' %(float(len(good150) + len(good90)) / n_maps)
 
-f90 = open('good_90ghzmaps.txt', 'w')
+f90 = open('/data39/ndhuang/clusters/ra23h30dec-55/run2/bundles1/good_90ghzmaps.txt', 'w')
 for ind in good90:
     f90.write(dat90['files'][ind])
 f90.close()
-f150 = open('good_150ghzmaps.txt', 'w')
+f150 = open('/data39/ndhuang/clusters/ra23h30dec-55/run2/bundles1/good_150ghzmaps.txt', 'w')
 for ind in good150:
     f150.write(dat150['files'][ind])
 f150.close()
