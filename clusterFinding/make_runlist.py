@@ -47,11 +47,11 @@ print 'Fraction of maps kept: %.3f' %(float(len(good150) + len(good90)) / n_maps
 
 f90 = open('/data39/ndhuang/clusters/ra23h30dec-55/run2/bundles1/good_90ghzmaps.txt', 'w')
 for ind in good90:
-    f90.write(dat90['files'][ind])
+    f90.write(dat90['files'][ind] + '\n')
 f90.close()
 f150 = open('/data39/ndhuang/clusters/ra23h30dec-55/run2/bundles1/good_150ghzmaps.txt', 'w')
 for ind in good150:
-    f150.write(dat150['files'][ind])
+    f150.write(dat150['files'][ind] + '\n')
 f150.close()
 
 
