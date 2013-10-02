@@ -2,9 +2,9 @@ pro make_clusterlist_catalog_sptpol,forceaz=forceaz,forcesingle=forcesingle,stop
 field='ra23h30dec-55'
 onlyuse=1
 
-cdir='/data39/ndhuang/clusters/ra23h30dec-55/run1/bundles/abbys_bundles/'
-coaddfile=cdir+'coadd.sav'
-maskfile =cdir+'mask_150ghz.fits'
+cdir='/data39/ndhuang/clusters/ra23h30dec-55/run2/bundles1/'
+coaddfile=cdir + 'coadd.sav'
+maskfile =cdir + '150/mask.fits'
 if keyword_set(stopit) then stop
 
 
@@ -18,15 +18,15 @@ cmbfile='/home/ndhuang/code/clusterFinding/params/ml_l10000_acc2_lensedCls.dat'
 profilefile='/home/ndhuang/code/clusterFinding/profiles/profiles_12_beta1_rc025_rc300.sav'
 
 noise1sig=[1e9,1e9,1e9] ; expect ignored
-outputdir='/data39/ndhuang/clusters/ra23h30dec-55/cluster_out/'
+outputdir='/data39/ndhuang/clusters/ra23h30dec-55/run2/bundles1/cluster_out/'
 savefile=outputdir+'clusters_'+field+'.sav'
 savefileall=outputdir+'clusters_allinfo_'+field+'.sav'
 if keyword_set(forcesingle) then begin
-savefile=outputdir+'clusters_150_'+field+'.sav'
-savefileall=outputdir+'clusters_150_allinfo_'+field+'.sav'
+   savefile=outputdir+'clusters_150_'+field+'.sav'
+   savefileall=outputdir+'clusters_150_allinfo_'+field+'.sav'
 endif
 proj=0
-psdfiles=cdir+'psd_'+['90', '150']+'ghz.sav'
+psdfiles = cdir + ['90/', '150/'] + 'psd.sav'
 fileksz = '/home/ndhuang/code/clusterFinding/params/ksz_sehgal.dat'
 if keyword_set(forceaz) then begin
     savefile=outputdir+'clusters_'+field+'-az.sav'

@@ -10,13 +10,16 @@ function group_to_struct, file_id, groupname, objname
 
   ;; if the object is not a group, do stuff with it
   objinfo = h5g_get_objinfo(file_id, groupname + '/' + objname)
-  if objinfo.type ne 'GROUP' then begin
+  type=objinfo.type
+  objinfo=0
+  if type ne 'GROUP' then begin
      ;; load the data, return it
      ;; print, objname, 'nongroup'
      spl = strsplit(objname, '-', /extract)
      tagname = strjoin(spl, '_')
      dat_id = h5d_open(file_id, groupname + '/' + objname)
      data = h5d_read(dat_id)
+     h5d_close,dat_id
      return, data
   endif
 

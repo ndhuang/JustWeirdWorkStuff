@@ -1,16 +1,18 @@
-pro conv_dir_to_runlist
+pro conv_dir_to_runlist, directory, freq
 
 ;; base='/data11/cr/run3_2009b/'
 ;; bstub='/maps/map_'
 ;; estub='.fits'
 ;; fstubs=['150']
-bstr = '/home/ndhuang/data/clusters/ra23h30dec-55/maps/run1/fits/bundles_v0/'
-list = file_search(bstr + 'bundle*150ghz.fits')
-ofile='/home/ndhuang/data/clusters/ra23h30dec-55/maps/run1/fits/bundles_v0/runlist_150ghz.txt'
+bstr = directory + '/' + strtrim(string(freq, '(I03)'), 2) + '/'
+list = file_search(bstr + 'bundle*.fits')
+ofile = bstr + 'runlist.txt'
     
 len = strlen(bstr)
 nl=n_elements(list)
 openw,lun,ofile,/get_lun
+printf, lun, '1 ' +  strtrim(string(nl), 2)
+printf, lun, 'Set 1:'
 for j=0,nl-1 do begin
    word=list[j]
    ;; tword=strmid(word,len,21)

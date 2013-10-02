@@ -9,5 +9,6 @@ function hdf5_to_struct, filename
         output = create_struct(output, create_struct(groupname, group_to_struct(file_id, '/', groupname)))
      endelse
   endfor
+  h5f_close, file_id
   return, output
 end

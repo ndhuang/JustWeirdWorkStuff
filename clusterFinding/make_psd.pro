@@ -1,12 +1,13 @@
 pro make_psd,freq,usemem=usemem
 field = 'ra23h30dec-55'
-sfreq = strtrim(string(freq),2) + 'ghz'
-coadd_dir = 'bundles/run1/abbys_bundles/'
-psd_file = coadd_dir + 'explicit_psd_' + sfreq + '.sav'
-psd_fits = coadd_dir + 'psd_' + sfreq + '.fits'
-mask_file = coadd_dir + 'mask_' + sfreq + '.fits'
+sfreq = strtrim(string(freq, format = '(I03)'),2)
+freq_name =  sfreq + 'ghz'
+coadd_dir = '/data39/ndhuang/clusters/ra23h30dec-55/run2/bundles1/' + sfreq + '/'
+psd_file = coadd_dir + 'psd.sav'
+psd_fits = coadd_dir + 'psd.fits'
+mask_file = coadd_dir + 'mask.fits'
 scrfile = 'none' ; Don't use scratch!
-runlist = coadd_dir + 'runlist_' + sfreq + '.txt'
+runlist = coadd_dir + 'runlist.txt'
 
 if keyword_set(usemem) then $
   psd = estimate_2d_psd_from_maps_multifield(runlist,apodfile=mask_file,$

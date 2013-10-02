@@ -17,12 +17,11 @@ import IPython
 from matplotlib import pyplot as pl, cm
 from sptpol_software.util import files, fits as sptfits
 
-def coadd_bundle(n_maps, mapfiles, output_name, map_shape, 
-                 sample_fitsfile = '/data/cr/map_ra23h30dec-55_90_20100512_201429_20100513_013114.fits'):
+def coadd_bundle(n_maps, mapfiles, output_name, map_shape = (3400, 3400), 
+                 pad_to = (4096, 4096)):
     sum_map = np.zeros(map_shape)
     weight_map = np.zeros(map_shape)
     bundled_maps = []
-    sample_fits = fits.open(sample_fitsfile)
     for i in range(n_maps):
         if len(mapfiles) < 1:
             raise RuntimeError('Oh Shit!  We\'re out of maps!')
@@ -38,10 +37,19 @@ def coadd_bundle(n_maps, mapfiles, output_name, map_shape,
     sum_map[inds] /= weight_map[inds]
     inds = np.nonzero(weight_map == 0)
     sum_map[inds] = 0
+
+    # pad
+    if pad_to is not None:
+        weight_full = np.zeros(pad_to)
+        map_full = np.zeros(pad_to)
+        pad = [(pt - ms) / 2 for pt, ms in zip(pad_to, map_shape)]
+        weight_full[pad[0]:pad[0] + map_shape[0], 
+                    pad[1]:pad[1] + map_shape[1]] = weight_map
+        map_full[pad[0]:pad[0] + map_shape[0], 
+                 pad[1]:pad[1] + map_shape[1]] = sum_map
+    
     sptfits.writeSptFits(output_name + '.fits', overwrite = True, 
-                         map = sum_map, weight = weight_map, 
-                         mapinfo = sample_fits['mapinfo'],
-                         processing = sample_fits['processing'])
+                         map = sum_map, weight = weight_map)
     info = open(output_name + '.info', 'w')
     info.write('%d\n' %n_maps)
     info.write('\n'.join(bundled_maps))
@@ -49,13 +57,11 @@ def coadd_bundle(n_maps, mapfiles, output_name, map_shape,
     return mapfiles
 
 def coadd_bundle_paralell(map_inds, mapfiles, output_name, 
-                          map_shape = (3400,3400), 
-                          sample_fitsfile = '/data/cr/map_ra23h30dec-55_90_20100512_201429_20100513_013114.fits'):
+                          map_shape = (3400,3400), pad_to = (4096, 4096)):
     mapfiles = np.asarray(mapfiles)
     sum_map = np.zeros(map_shape)
     weight_map = np.zeros(map_shape)
     bundled_maps = mapfiles[map_inds]
-    sample_fits = fits.open(sample_fitsfile)
     for mfile in bundled_maps:
         m = files.read(mfile)
         try:
@@ -70,12 +76,20 @@ def coadd_bundle_paralell(map_inds, mapfiles, output_name,
     sum_map[inds] /= weight_map[inds]
     inds = np.nonzero(weight_map == 0)
     sum_map[inds] = 0
+    # pad the map
+    if pad_to is not None:
+        weight_full = np.zeros(pad_to)
+        map_full = np.zeros(pad_to)
+        pad = [(pt - ms) / 2 for pt, ms in zip(pad_to, map_shape)]
+        weight_full[pad[0]:pad[0] + map_shape[0], 
+                    pad[1]:pad[1] + map_shape[1]] = weight_map
+        map_full[pad[0]:pad[0] + map_shape[0], 
+                 pad[1]:pad[1] + map_shape[1]] = sum_map
+        
     # this is writing fits files with map.weight.weight
     # we'd like map.weight.map
     sptfits.writeSptFits(output_name + '.fits', overwrite = True, 
-                         map = sum_map, weight = weight_map, 
-                         mapinfo = sample_fits['mapinfo'],
-                         processing = sample_fits['processing'])
+                         map = sum_map, weight = weight_map)
     info = open(output_name + '.info', 'w')
     info.write('%d\n' %n_maps)
     info.write('\n'.join(bundled_maps))
@@ -87,28 +101,40 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description = 'Coadd the bundles')
     parser.add_argument('--num_procs', type = int, default = 1)
     parser.add_argument('--num_bundles',  type = int, default = 100)
-    parser.add_argument('directory', type = str)
+    parser.add_argument('runlist', type = str)
     parser.add_argument('outdir', type = str)
     args = parser.parse_args()
 
     # use abby's bundles for now
     # mapfiles = glob.glob(os.path.join(args.directory, '*150ghz.hdf5'))
-    bundle_file = open('/home/nlharr/bundles_150GHz_v2_runlist.pkl', 'r')
-    bundle_info = pickle.load(bundle_file)[0]
-    bundle_file.close()
-    mapfiles = []
-    for v in bundle_info.itervalues():
-        mapfiles += v
-    i = 0
-    while i < len(mapfiles):
-        mapfiles[i] = os.path.join(args.directory, 
-                                   mapfiles[i] + '_150ghz.hdf5')
-        if not os.path.exists(mapfiles[i]):
-            mapfiles.pop(i)
-        else:
-            i += 1
+    # bundle_file = open('/home/nlharr/bundles_150GHz_v2_runlist.pkl', 'r')
+    # bundle_info = pickle.load(bundle_file)[0]
+    # bundle_file.close()
+    # mapfiles = []
+    # for v in bundle_info.itervalues():
+    #     mapfiles += v
+    # i = 0
+    # while i < len(mapfiles):
+    #     mapfiles[i] = os.path.join(args.directory, 
+    #                                mapfiles[i] + '_150ghz.hdf5')
+    #     if not os.path.exists(mapfiles[i]):
+    #         mapfiles.pop(i)
+    #     else:
+    #         i += 1
             
-        
+    runlist = open(args.runlist, 'r')
+    mapfiles = runlist.readlines()
+    for i, mf in enumerate(mapfiles):
+        mapfiles[i] = mf.strip()
+    if '150' in args.runlist:
+        freq = '150'
+    elif '90' in args.runlist:
+        freq = '090'
+    else:
+        print 'Warning, frequency undetermined! Using raw output directory'
+    args.outdir = os.path.join(args.outdir, freq)
+    if not os.path.exists(args.outdir):
+        os.makedirs(args.outdir)
 
     n_bundles = args.num_bundles
     n_maps = len(mapfiles) / n_bundles
@@ -121,15 +147,15 @@ if __name__ == '__main__':
 
     if args.num_procs == 1:
         for i, inds in enumerate(map_inds):
-            outname = args.outdir + 'bundle_%02d_150ghz' %i
+            outname = os.path.join(args.outdir, 'bundle_%02d' %(i))
             coadd_bundle_paralell(inds, mapfiles, outname)
     else:
         i = 0
         while i < n_bundles:
             running_procs = 0
-            procs = [[] for p in range(args.num_procs)]
+            procs = [None for p in range(args.num_procs)]
             while running_procs < args.num_procs and i < n_bundles:
-                outname = args.outdir + 'bundle_%02d_150ghz' %i
+                outname = os.path.join(args.outdir, 'bundle_%02d' %(i))
                 procs[running_procs] = Process(target = coadd_bundle_paralell, 
                                                args = (map_inds[i], mapfiles, 
                                                        outname))
@@ -137,7 +163,8 @@ if __name__ == '__main__':
                 running_procs += 1
                 i += 1
             for p in procs:
-                p.join()
+                if p is not None:
+                    p.join()
             print 'Completed bundle %d of %d %s' %(i, n_bundles, 
                                                    datetime.now().strftime('%H:%M'))
                                   
