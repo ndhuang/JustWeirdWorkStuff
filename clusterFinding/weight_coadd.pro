@@ -7,14 +7,20 @@ mask_output_file = output_dir + '/' + sfreq + '/mask.fits'
 fits_bundles = file_search(bundle_dir)
 weight = dblarr(4096, 4096)
 coadd = dblarr(4096, 4096)
+
+;; mask = read_spt_fits('/data39/ndhuang/clusters/ra23h30dec-55/run1/bundles/abbys_bundles/mask_150ghz.fits')
+
 for i = 0, n_elements(fits_bundles) - 1 do begin
    map = read_spt_fits(fits_bundles[i])
    coadd += map.map.map * map.weight.weight
    weight += map.weight.weight
-
+   ;; print, fits_bundles[i]
+   ;; good=where(weight ne 0, count)
+   ;; if count eq 0 then print, stddev(coadd  * mask.masks.apod_mask / weight) $
+   ;; else print, stddev(coadd[good] * mask.masks.apod_mask[good] / weight[good])
 endfor
 good=where(weight ne 0,complement=bad)
-if n_elements(bad) lt 1 then coadd(bad)=0
+if n_elements(bad) lt 1 then coadd[bad] = 0
 if n_elements(good) lt 1 then begin  
    print, 'Borked!!!!' 
    stop
@@ -30,7 +36,7 @@ add_bintab_to_fits, coadd_fits_file, coadd_struct, 'coadd'
 if file_test(coadd_save_file) eq 1 then restore, coadd_save_file $
 else maps = dblarr(4096, 4096, 2)
 
-if freq eq 90 then maps[*, *, 0] =coadd $
+if freq eq 90 then maps[*, *, 0] = coadd $
 else maps[*, *, 1] = coadd
 save, maps, filename = coadd_save_file
 CREATE_APODIZATION_MASKS, weight, mask_output_file, threshold=.8

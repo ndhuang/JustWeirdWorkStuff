@@ -49,7 +49,7 @@ def coadd_bundle(n_maps, mapfiles, output_name, map_shape = (3400, 3400),
                  pad[1]:pad[1] + map_shape[1]] = sum_map
     
     sptfits.writeSptFits(output_name + '.fits', overwrite = True, 
-                         map = sum_map, weight = weight_map)
+                         map = map_full, weight = weight_full)
     info = open(output_name + '.info', 'w')
     info.write('%d\n' %n_maps)
     info.write('\n'.join(bundled_maps))
@@ -89,7 +89,7 @@ def coadd_bundle_paralell(map_inds, mapfiles, output_name,
     # this is writing fits files with map.weight.weight
     # we'd like map.weight.map
     sptfits.writeSptFits(output_name + '.fits', overwrite = True, 
-                         map = sum_map, weight = weight_map)
+                         map = map_full, weight = weight_full)
     info = open(output_name + '.info', 'w')
     info.write('%d\n' %n_maps)
     info.write('\n'.join(bundled_maps))
