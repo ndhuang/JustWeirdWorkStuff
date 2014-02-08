@@ -18,7 +18,9 @@ function group_to_struct, file_id, groupname, objname
      spl = strsplit(objname, '-', /extract)
      tagname = strjoin(spl, '_')
      dat_id = h5d_open(file_id, groupname + '/' + objname)
-     data = h5d_read(dat_id)
+     if h5d_get_storage_size(dat_id) eq 0 then begin 
+        data = !values.f_nan
+     endif else data = h5d_read(dat_id)
      h5d_close,dat_id
      return, data
   endif
