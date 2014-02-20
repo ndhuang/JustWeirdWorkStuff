@@ -1,0 +1,113 @@
+/home/ndhuang/code/sptpol_software/observation/receiver.py:2518: RuntimeWarning: 
+
+*********** We really want a boloIndex attribute, but it's not in this hardware map!***********
+
+  warnings.warn("\n\n*********** We really want a boloIndex attribute, but it's not in this hardware map!***********\n", RuntimeWarning)
+== June ==
+=== Off ===
+	Sq1SBpol04 D2.B2:  ALWAYS
+	Sq5SBpol05 D4.A2:  ALWAYS
+	Sq6SBpol05 D4.A2:  0.930
+	Sq4SBpol14 D4.B1:  0.630
+	Sq1SBpol17 D1.B2:  0.739
+	Sq6SBpol20 C4.A1:  ALWAYS
+	Sq1SBpol21 C5.B2:  ALWAYS
+	Sq5SBpol24 C3.A2:  ALWAYS
+	Sq6SBpol24 C3.A2:  ALWAYS
+	Sq7SBpol24 C3.A2:  ALWAYS
+=== Bad ===
+	Sq5SBpol06 ARG1B.1B:  0.743
+	Sq5SBpol25 ARG1A.1A:  0.723
+	Sq8SBpol25 ARG1A.1A:  0.760
+== July ==
+=== Off ===
+	Sq1SBpol04 D2.B2:  0.998
+	Sq5SBpol05 D4.A2:  0.998
+	Sq6SBpol05 D4.A2:  0.909
+	Sq4SBpol14 D4.B1:  0.684
+	Sq7SBpol16 C3.A1:  0.646
+	Sq1SBpol17 D1.B2:  0.955
+	Sq1SBpol20 C4.B1:  0.998
+	Sq3SBpol20 C4.B1:  0.998
+	Sq6SBpol20 C4.A1:  0.998
+	Sq1SBpol21 C5.B2:  0.997
+	Sq5SBpol21 C5.A2:  0.997
+	Sq6SBpol21 C5.A2:  0.997
+	Sq5SBpol24 C3.A2:  0.997
+	Sq6SBpol24 C3.A2:  0.997
+	Sq7SBpol24 C3.A2:  0.997
+=== Bad ===
+== August ==
+=== Off ===
+	Sq1SBpol04 D2.B2:  ALWAYS
+	Sq5SBpol05 D4.A2:  ALWAYS
+	Sq6SBpol05 D4.A2:  0.908
+	Sq4SBpol14 D4.B1:  0.667
+	Sq7SBpol16 C3.A1:  0.908
+	Sq1SBpol17 D1.B2:  0.954
+	Sq1SBpol20 C4.B1:  0.954
+	Sq3SBpol20 C4.B1:  0.954
+	Sq6SBpol20 C4.A1:  0.954
+	Sq8SBpol20 C4.A1:  0.954
+	Sq1SBpol21 C5.B2:  ALWAYS
+	Sq5SBpol21 C5.A2:  ALWAYS
+	Sq6SBpol21 C5.A2:  ALWAYS
+	Sq5SBpol24 C3.A2:  ALWAYS
+	Sq6SBpol24 C3.A2:  ALWAYS
+	Sq7SBpol24 C3.A2:  ALWAYS
+=== Bad ===
+== September ==
+=== Off ===
+	Sq1SBpol04 D2.B2:  ALWAYS
+	Sq5SBpol05 D4.A2:  ALWAYS
+	Sq6SBpol05 D4.A2:  0.954
+	Sq7SBpol16 C3.A1:  0.908
+	Sq1SBpol17 D1.B2:  0.954
+	Sq1SBpol20 C4.B1:  0.995
+	Sq3SBpol20 C4.B1:  ALWAYS
+	Sq6SBpol20 C4.A1:  ALWAYS
+	Sq8SBpol20 C4.A1:  ALWAYS
+	Sq1SBpol21 C5.B2:  ALWAYS
+	Sq5SBpol21 C5.A2:  ALWAYS
+	Sq6SBpol21 C5.A2:  ALWAYS
+	Sq5SBpol24 C3.A2:  ALWAYS
+	Sq6SBpol24 C3.A2:  ALWAYS
+	Sq7SBpol24 C3.A2:  ALWAYS
+=== Bad ===
+== October ==
+=== Off ===
+	Sq1SBpol04 D2.B2:  ALWAYS
+	Sq5SBpol05 D4.A2:  ALWAYS
+	Sq6SBpol05 D4.A2:  0.828
+	Sq7SBpol16 C3.A1:  0.829
+	Sq1SBpol17 D1.B2:  0.915
+	Sq1SBpol20 C4.B1:  ALWAYS
+	Sq3SBpol20 C4.B1:  ALWAYS
+	Sq6SBpol20 C4.A1:  ALWAYS
+	Sq8SBpol20 C4.A1:  ALWAYS
+	Sq1SBpol21 C5.B2:  ALWAYS
+	Sq5SBpol21 C5.A2:  ALWAYS
+	Sq6SBpol21 C5.A2:  ALWAYS
+	Sq5SBpol24 C3.A2:  ALWAYS
+	Sq6SBpol24 C3.A2:  ALWAYS
+	Sq7SBpol24 C3.A2:  ALWAYS
+=== Bad ===
+	Sq4SBpol14 D4.B1:  0.551
+== November ==
+=== Off ===
+	Sq1SBpol04 D2.B2:  ALWAYS
+	Sq5SBpol05 D4.A2:  ALWAYS
+	Sq6SBpol05 D4.A2:  0.726
+	Sq7SBpol16 C3.A1:  0.634
+	Sq1SBpol17 D1.B2:  0.739
+	Sq1SBpol20 C4.B1:  ALWAYS
+	Sq3SBpol20 C4.B1:  ALWAYS
+	Sq6SBpol20 C4.A1:  ALWAYS
+	Sq8SBpol20 C4.A1:  ALWAYS
+	Sq1SBpol21 C5.B2:  ALWAYS
+	Sq5SBpol21 C5.A2:  ALWAYS
+	Sq6SBpol21 C5.A2:  ALWAYS
+	Sq5SBpol24 C3.A2:  0.936
+	Sq6SBpol24 C3.A2:  0.936
+	Sq7SBpol24 C3.A2:  0.936
+=== Bad ===
