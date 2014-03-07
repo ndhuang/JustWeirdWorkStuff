@@ -1,0 +1,1838 @@
+== June ==
+=== Off ===
+	Sq1SBpol03 D2.B1:  0.004
+
+	Sq2SBpol03 D2.B1:  0.004
+
+	Sq3SBpol03 D2.B1:  0.004
+
+	Sq4SBpol03 D2.B1:  0.004
+
+	Sq5SBpol03 D2.A1:  0.004
+
+	Sq6SBpol03 D2.A1:  0.004
+
+	Sq7SBpol03 D2.A1:  0.004
+
+	Sq8SBpol03 D2.A1:  0.004
+
+	Sq2SBpol04 D2.B2:  0.047
+
+	Sq3SBpol04 D2.A2:  0.004
+
+	Sq4SBpol04 D2.B2:  0.002
+
+	Sq5SBpol04 D2.A2:  0.004
+
+	Sq6SBpol04 D2.A2:  0.004
+
+	Sq7SBpol04 D2.A2:  0.004
+
+	Sq8SBpol04 D2.A2:  0.004
+
+	Sq1SBpol05 D4.B2:  0.054
+
+	Sq2SBpol05 D4.B2:  0.004
+
+	Sq3SBpol05 D4.B2:  0.004
+
+	Sq4SBpol05 D4.B2:  0.004
+
+	Sq7SBpol05 D4.A2:  0.004
+
+	Sq8SBpol05 D4.A2:  0.004
+
+	Sq1SBpol06 ARG1B.1B:  0.005
+
+	Sq2SBpol06 ARG1B.1B:  0.005
+
+	Sq3SBpol06 ARG1B.1B:  0.005
+
+	Sq4SBpol06 ARG1B.1B:  0.005
+
+	Sq5SBpol06 ARG1B.1B:  0.005
+
+	Sq6SBpol06 ARG1B.1B:  0.005
+
+	Sq7SBpol06 ARG1B.1B:  0.005
+
+	Sq8SBpol06 ARG1B.1B:  0.193
+
+	Sq1SBpol07 D1.B1:  0.004
+
+	Sq2SBpol07 D1.B1:  0.004
+
+	Sq3SBpol07 D1.B1:  0.004
+
+	Sq4SBpol07 D1.B1:  0.004
+
+	Sq5SBpol07 D1.A1:  0.004
+
+	Sq6SBpol07 D1.A1:  0.004
+
+	Sq7SBpol07 D1.A1:  0.004
+
+	Sq8SBpol07 D1.A1:  0.004
+
+	Sq1SBpol14 D4.B1:  0.004
+
+	Sq2SBpol14 D4.B1:  0.004
+
+	Sq3SBpol14 D4.B1:  0.004
+
+	Sq5SBpol14 D4.A1:  0.004
+
+	Sq6SBpol14 D4.A1:  0.004
+
+	Sq7SBpol14 D4.A1:  0.047
+
+	Sq8SBpol14 D4.A1:  0.004
+
+	Sq1SBpol15 ARG2A.2A:  0.004
+
+	Sq2SBpol15 ARG2A.2A:  0.004
+
+	Sq3SBpol15 ARG2A.2A:  0.004
+
+	Sq4SBpol15 ARG2A.2A:  0.004
+
+	Sq5SBpol15 ARG2A.2A:  0.004
+
+	Sq6SBpol15 ARG2A.2A:  0.004
+
+	Sq7SBpol15 ARG2A.2A:  0.004
+
+	Sq8SBpol15 ARG2A.2A:  0.004
+
+	Sq1SBpol16 C3.B1:  0.004
+
+	Sq2SBpol16 C3.B1:  0.004
+
+	Sq3SBpol16 C3.B1:  0.004
+
+	Sq4SBpol16 C3.B1:  0.004
+
+	Sq5SBpol16 C3.A1:  0.004
+
+	Sq6SBpol16 C3.A1:  0.004
+
+	Sq7SBpol16 C3.A1:  0.004
+
+	Sq8SBpol16 C3.A1:  0.004
+
+	Sq2SBpol17 D1.B2:  0.004
+
+	Sq3SBpol17 D1.B2:  0.004
+
+	Sq4SBpol17 D1.B2:  0.004
+
+	Sq5SBpol17 D1.A2:  0.004
+
+	Sq6SBpol17 D1.A2:  0.004
+
+	Sq7SBpol17 D1.A2:  0.004
+
+	Sq8SBpol17 D1.A2:  0.004
+
+	Sq1SBpol18 C1.B2:  0.004
+
+	Sq2SBpol18 C1.B2:  0.047
+
+	Sq3SBpol18 C1.B2:  0.004
+
+	Sq4SBpol18 C1.B2:  0.004
+
+	Sq5SBpol18 C1.A2:  0.004
+
+	Sq6SBpol18 C1.A2:  0.004
+
+	Sq7SBpol18 C1.A2:  0.004
+
+	Sq8SBpol18 C1.A2:  0.004
+
+	Sq1SBpol19 C1.B1:  0.004
+
+	Sq2SBpol19 C1.B1:  0.004
+
+	Sq3SBpol19 C1.B1:  0.004
+
+	Sq4SBpol19 C1.B1:  0.004
+
+	Sq5SBpol19 C1.A1:  0.004
+
+	Sq6SBpol19 C1.A1:  0.004
+
+	Sq7SBpol19 C1.A1:  0.004
+
+	Sq8SBpol19 C1.A1:  0.004
+
+	Sq1SBpol20 C4.B1:  0.123
+
+	Sq2SBpol20 C4.B1:  0.005
+
+	Sq3SBpol20 C4.B1:  0.121
+
+	Sq4SBpol20 C4.B1:  0.005
+
+	Sq5SBpol20 C4.A1:  0.005
+
+	Sq7SBpol20 C4.A1:  0.005
+
+	Sq8SBpol20 C4.A1:  0.005
+
+	Sq2SBpol21 C5.B2:  0.004
+
+	Sq3SBpol21 C5.A2:  0.004
+
+	Sq4SBpol21 C5.B2:  0.004
+
+	Sq5SBpol21 C5.A2:  0.067
+
+	Sq6SBpol21 C5.A2:  0.067
+
+	Sq7SBpol21 C5.A2:  0.004
+
+	Sq8SBpol21 C5.A2:  0.004
+
+	Sq1SBpol22 C4.B2:  0.005
+
+	Sq2SBpol22 C4.B2:  0.005
+
+	Sq3SBpol22 C4.B2:  0.005
+
+	Sq4SBpol22 C4.B2:  0.005
+
+	Sq5SBpol22 C4.A2:  0.004
+
+	Sq6SBpol22 C4.A2:  0.004
+
+	Sq7SBpol22 C4.A2:  0.004
+
+	Sq8SBpol22 C4.A2:  0.004
+
+	Sq1SBpol23 ARG2B.2B:  0.051
+
+	Sq2SBpol23 ARG2B.2B:  0.391
+
+	Sq3SBpol23 ARG2B.2B:  0.102
+
+	Sq4SBpol23 ARG2B.2B:  0.243
+
+	Sq5SBpol23 ARG2B.2B:  0.004
+
+	Sq6SBpol23 ARG2B.2B:  0.004
+
+	Sq7SBpol23 ARG2B.2B:  0.004
+
+	Sq8SBpol23 ARG2B.2B:  0.004
+
+	Sq1SBpol24 C3.B2:  0.004
+
+	Sq2SBpol24 C3.B2:  0.004
+
+	Sq3SBpol24 C3.B2:  0.004
+
+	Sq4SBpol24 C3.B2:  0.004
+
+	Sq8SBpol24 C3.A2:  0.004
+
+	Sq1SBpol25 ARG1A.1A:  0.004
+
+	Sq2SBpol25 ARG1A.1A:  0.004
+
+	Sq3SBpol25 ARG1A.1A:  0.004
+
+	Sq4SBpol25 ARG1A.1A:  0.004
+
+	Sq5SBpol25 ARG1A.1A:  0.105
+
+	Sq6SBpol25 ARG1A.1A:  0.004
+
+	Sq7SBpol25 ARG1A.1A:  0.004
+
+	Sq8SBpol25 ARG1A.1A:  0.047
+
+	Sq1SBpol30 C5.B1:  0.098
+
+	Sq2SBpol30 C5.B1:  0.004
+
+	Sq3SBpol30 C5.B1:  0.002
+
+	Sq4SBpol30 C5.B1:  0.002
+
+	Sq5SBpol30 C5.A1:  0.004
+
+	Sq6SBpol30 C5.A1:  0.004
+
+	Sq7SBpol30 C5.A1:  0.047
+
+	Sq8SBpol30 C5.A1:  0.004
+
+=== Bad ===
+	Sq7SBpol03 D2.A1:  0.004
+
+	Sq8SBpol03 D2.A1:  0.004
+
+	Sq2SBpol04 D2.B2:  0.051
+
+	Sq3SBpol04 D2.A2:  0.004
+
+	Sq6SBpol04 D2.A2:  0.004
+
+	Sq7SBpol04 D2.A2:  0.004
+
+	Sq8SBpol04 D2.A2:  0.004
+
+	Sq1SBpol05 D4.B2:  0.002
+
+	Sq3SBpol05 D4.B2:  0.002
+
+	Sq6SBpol05 D4.A2:  0.070
+
+	Sq8SBpol05 D4.A2:  0.004
+
+	Sq1SBpol06 ARG1B.1B:  0.005
+
+	Sq4SBpol06 ARG1B.1B:  0.002
+
+	Sq8SBpol06 ARG1B.1B:  0.007
+
+	Sq3SBpol07 D1.B1:  0.002
+
+	Sq6SBpol07 D1.A1:  0.004
+
+	Sq8SBpol07 D1.A1:  0.004
+
+	Sq2SBpol14 D4.B1:  0.002
+
+	Sq3SBpol14 D4.B1:  0.005
+
+	Sq4SBpol14 D4.B1:  0.282
+
+	Sq5SBpol14 D4.A1:  0.007
+
+	Sq6SBpol14 D4.A1:  0.004
+
+	Sq7SBpol14 D4.A1:  0.047
+
+	Sq8SBpol14 D4.A1:  0.007
+
+	Sq1SBpol15 ARG2A.2A:  0.004
+
+	Sq2SBpol15 ARG2A.2A:  0.004
+
+	Sq3SBpol15 ARG2A.2A:  0.004
+
+	Sq4SBpol15 ARG2A.2A:  0.004
+
+	Sq5SBpol15 ARG2A.2A:  0.004
+
+	Sq6SBpol15 ARG2A.2A:  0.004
+
+	Sq7SBpol15 ARG2A.2A:  0.004
+
+	Sq8SBpol15 ARG2A.2A:  0.004
+
+	Sq3SBpol16 C3.B1:  0.002
+
+	Sq7SBpol16 C3.A1:  0.049
+
+	Sq8SBpol16 C3.A1:  0.002
+
+	Sq1SBpol17 D1.B2:  0.252
+
+	Sq2SBpol17 D1.B2:  0.004
+
+	Sq3SBpol17 D1.B2:  0.002
+
+	Sq4SBpol17 D1.B2:  0.004
+
+	Sq5SBpol17 D1.A2:  0.004
+
+	Sq8SBpol17 D1.A2:  0.004
+
+	Sq2SBpol18 C1.B2:  0.051
+
+	Sq3SBpol18 C1.B2:  0.004
+
+	Sq5SBpol18 C1.A2:  0.002
+
+	Sq6SBpol18 C1.A2:  0.004
+
+	Sq8SBpol18 C1.A2:  0.004
+
+	Sq3SBpol19 C1.B1:  0.002
+
+	Sq5SBpol19 C1.A1:  0.002
+
+	Sq8SBpol19 C1.A1:  0.002
+
+	Sq2SBpol20 C4.B1:  0.004
+
+	Sq3SBpol20 C4.B1:  0.004
+
+	Sq4SBpol20 C4.B1:  0.004
+
+	Sq5SBpol20 C4.A1:  0.004
+
+	Sq8SBpol20 C4.A1:  0.004
+
+	Sq2SBpol21 C5.B2:  0.004
+
+	Sq3SBpol21 C5.A2:  0.004
+
+	Sq4SBpol21 C5.B2:  0.004
+
+	Sq5SBpol21 C5.A2:  0.004
+
+	Sq6SBpol21 C5.A2:  0.004
+
+	Sq8SBpol21 C5.A2:  0.004
+
+	Sq1SBpol22 C4.B2:  0.004
+
+	Sq2SBpol22 C4.B2:  0.004
+
+	Sq3SBpol22 C4.B2:  0.002
+
+	Sq4SBpol22 C4.B2:  0.002
+
+	Sq5SBpol22 C4.A2:  0.004
+
+	Sq8SBpol22 C4.A2:  0.004
+
+	Sq1SBpol23 ARG2B.2B:  0.005
+
+	Sq2SBpol23 ARG2B.2B:  0.019
+
+	Sq3SBpol23 ARG2B.2B:  0.005
+
+	Sq4SBpol23 ARG2B.2B:  0.131
+
+	Sq5SBpol23 ARG2B.2B:  0.004
+
+	Sq6SBpol23 ARG2B.2B:  0.004
+
+	Sq7SBpol23 ARG2B.2B:  0.007
+
+	Sq8SBpol23 ARG2B.2B:  0.004
+
+	Sq1SBpol24 C3.B2:  0.004
+
+	Sq2SBpol24 C3.B2:  0.004
+
+	Sq3SBpol24 C3.B2:  0.004
+
+	Sq4SBpol24 C3.B2:  0.004
+
+	Sq1SBpol25 ARG1A.1A:  0.004
+
+	Sq2SBpol25 ARG1A.1A:  0.004
+
+	Sq3SBpol25 ARG1A.1A:  0.040
+
+	Sq4SBpol25 ARG1A.1A:  0.005
+
+	Sq6SBpol25 ARG1A.1A:  0.004
+
+	Sq7SBpol25 ARG1A.1A:  0.193
+
+	Sq1SBpol30 C5.B1:  0.233
+
+	Sq2SBpol30 C5.B1:  0.004
+
+	Sq5SBpol30 C5.A1:  0.004
+
+	Sq7SBpol30 C5.A1:  0.051
+
+	Sq8SBpol30 C5.A1:  0.004
+
+== July ==
+=== Off ===
+	Sq1SBpol03 D2.B1:  0.002
+
+	Sq2SBpol03 D2.B1:  0.002
+
+	Sq3SBpol03 D2.B1:  0.002
+
+	Sq4SBpol03 D2.B1:  0.002
+
+	Sq5SBpol03 D2.A1:  0.002
+
+	Sq6SBpol03 D2.A1:  0.002
+
+	Sq7SBpol03 D2.A1:  0.032
+
+	Sq8SBpol03 D2.A1:  0.002
+
+	Sq2SBpol04 D2.B2:  0.032
+
+	Sq3SBpol04 D2.A2:  0.002
+
+	Sq4SBpol04 D2.B2:  0.002
+
+	Sq5SBpol04 D2.A2:  0.002
+
+	Sq6SBpol04 D2.A2:  0.015
+
+	Sq7SBpol04 D2.A2:  0.002
+
+	Sq8SBpol04 D2.A2:  0.015
+
+	Sq1SBpol05 D4.B2:  0.049
+
+	Sq2SBpol05 D4.B2:  0.002
+
+	Sq3SBpol05 D4.B2:  0.015
+
+	Sq4SBpol05 D4.B2:  0.002
+
+	Sq7SBpol05 D4.A2:  0.002
+
+	Sq8SBpol05 D4.A2:  0.002
+
+	Sq1SBpol06 ARG1B.1B:  0.005
+
+	Sq2SBpol06 ARG1B.1B:  0.005
+
+	Sq3SBpol06 ARG1B.1B:  0.005
+
+	Sq4SBpol06 ARG1B.1B:  0.036
+
+	Sq5SBpol06 ARG1B.1B:  0.005
+
+	Sq6SBpol06 ARG1B.1B:  0.005
+
+	Sq7SBpol06 ARG1B.1B:  0.005
+
+	Sq8SBpol06 ARG1B.1B:  0.005
+
+	Sq1SBpol07 D1.B1:  0.002
+
+	Sq2SBpol07 D1.B1:  0.002
+
+	Sq3SBpol07 D1.B1:  0.002
+
+	Sq4SBpol07 D1.B1:  0.002
+
+	Sq5SBpol07 D1.A1:  0.002
+
+	Sq6SBpol07 D1.A1:  0.002
+
+	Sq7SBpol07 D1.A1:  0.002
+
+	Sq8SBpol07 D1.A1:  0.002
+
+	Sq1SBpol14 D4.B1:  0.002
+
+	Sq2SBpol14 D4.B1:  0.015
+
+	Sq3SBpol14 D4.B1:  0.015
+
+	Sq5SBpol14 D4.A1:  0.015
+
+	Sq6SBpol14 D4.A1:  0.015
+
+	Sq7SBpol14 D4.A1:  0.061
+
+	Sq8SBpol14 D4.A1:  0.002
+
+	Sq1SBpol15 ARG2A.2A:  0.003
+
+	Sq2SBpol15 ARG2A.2A:  0.003
+
+	Sq3SBpol15 ARG2A.2A:  0.317
+
+	Sq4SBpol15 ARG2A.2A:  0.003
+
+	Sq5SBpol15 ARG2A.2A:  0.003
+
+	Sq6SBpol15 ARG2A.2A:  0.003
+
+	Sq7SBpol15 ARG2A.2A:  0.003
+
+	Sq8SBpol15 ARG2A.2A:  0.121
+
+	Sq1SBpol16 C3.B1:  0.002
+
+	Sq2SBpol16 C3.B1:  0.002
+
+	Sq3SBpol16 C3.B1:  0.015
+
+	Sq4SBpol16 C3.B1:  0.002
+
+	Sq5SBpol16 C3.A1:  0.002
+
+	Sq6SBpol16 C3.A1:  0.002
+
+	Sq8SBpol16 C3.A1:  0.015
+
+	Sq2SBpol17 D1.B2:  0.016
+
+	Sq3SBpol17 D1.B2:  0.003
+
+	Sq4SBpol17 D1.B2:  0.003
+
+	Sq5SBpol17 D1.A2:  0.003
+
+	Sq6SBpol17 D1.A2:  0.003
+
+	Sq7SBpol17 D1.A2:  0.003
+
+	Sq8SBpol17 D1.A2:  0.003
+
+	Sq1SBpol18 C1.B2:  0.003
+
+	Sq2SBpol18 C1.B2:  0.047
+
+	Sq3SBpol18 C1.B2:  0.003
+
+	Sq4SBpol18 C1.B2:  0.003
+
+	Sq5SBpol18 C1.A2:  0.015
+
+	Sq6SBpol18 C1.A2:  0.002
+
+	Sq7SBpol18 C1.A2:  0.002
+
+	Sq8SBpol18 C1.A2:  0.015
+
+	Sq1SBpol19 C1.B1:  0.003
+
+	Sq2SBpol19 C1.B1:  0.003
+
+	Sq3SBpol19 C1.B1:  0.016
+
+	Sq4SBpol19 C1.B1:  0.003
+
+	Sq5SBpol19 C1.A1:  0.003
+
+	Sq6SBpol19 C1.A1:  0.003
+
+	Sq7SBpol19 C1.A1:  0.003
+
+	Sq8SBpol19 C1.A1:  0.016
+
+	Sq2SBpol20 C4.B1:  0.018
+
+	Sq4SBpol20 C4.B1:  0.016
+
+	Sq5SBpol20 C4.A1:  0.016
+
+	Sq7SBpol20 C4.A1:  0.003
+
+	Sq8SBpol20 C4.A1:  0.362
+
+	Sq2SBpol21 C5.B2:  0.015
+
+	Sq3SBpol21 C5.A2:  0.015
+
+	Sq4SBpol21 C5.B2:  0.015
+
+	Sq7SBpol21 C5.A2:  0.002
+
+	Sq8SBpol21 C5.A2:  0.015
+
+	Sq1SBpol22 C4.B2:  0.002
+
+	Sq2SBpol22 C4.B2:  0.002
+
+	Sq3SBpol22 C4.B2:  0.015
+
+	Sq4SBpol22 C4.B2:  0.002
+
+	Sq5SBpol22 C4.A2:  0.002
+
+	Sq6SBpol22 C4.A2:  0.002
+
+	Sq7SBpol22 C4.A2:  0.002
+
+	Sq2SBpol23 ARG2B.2B:  0.172
+
+	Sq4SBpol23 ARG2B.2B:  0.312
+
+	Sq7SBpol23 ARG2B.2B:  0.044
+
+	Sq8SBpol23 ARG2B.2B:  0.013
+
+	Sq1SBpol24 C3.B2:  0.002
+
+	Sq2SBpol24 C3.B2:  0.002
+
+	Sq3SBpol24 C3.B2:  0.015
+
+	Sq4SBpol24 C3.B2:  0.015
+
+	Sq8SBpol24 C3.A2:  0.002
+
+	Sq2SBpol25 ARG1A.1A:  0.045
+
+	Sq4SBpol25 ARG1A.1A:  0.089
+
+	Sq5SBpol25 ARG1A.1A:  0.091
+
+	Sq7SBpol25 ARG1A.1A:  0.044
+
+	Sq8SBpol25 ARG1A.1A:  0.044
+
+	Sq1SBpol30 C5.B1:  0.328
+
+	Sq2SBpol30 C5.B1:  0.002
+
+	Sq3SBpol30 C5.B1:  0.002
+
+	Sq4SBpol30 C5.B1:  0.002
+
+	Sq5SBpol30 C5.A1:  0.002
+
+	Sq6SBpol30 C5.A1:  0.002
+
+	Sq7SBpol30 C5.A1:  0.045
+
+	Sq8SBpol30 C5.A1:  0.015
+
+=== Bad ===
+	Sq5SBpol03 D2.A1:  0.003
+
+	Sq6SBpol03 D2.A1:  0.003
+
+	Sq7SBpol03 D2.A1:  0.003
+
+	Sq3SBpol04 D2.A2:  0.003
+
+	Sq4SBpol04 D2.B2:  0.003
+
+	Sq5SBpol04 D2.A2:  0.003
+
+	Sq6SBpol04 D2.A2:  0.005
+
+	Sq7SBpol04 D2.A2:  0.010
+
+	Sq8SBpol04 D2.A2:  0.005
+
+	Sq1SBpol05 D4.B2:  0.003
+
+	Sq3SBpol05 D4.B2:  0.002
+
+	Sq6SBpol05 D4.A2:  0.084
+
+	Sq1SBpol06 ARG1B.1B:  0.011
+
+	Sq2SBpol06 ARG1B.1B:  0.005
+
+	Sq3SBpol06 ARG1B.1B:  0.005
+
+	Sq4SBpol06 ARG1B.1B:  0.005
+
+	Sq5SBpol06 ARG1B.1B:  0.002
+
+	Sq6SBpol06 ARG1B.1B:  0.005
+
+	Sq7SBpol06 ARG1B.1B:  0.005
+
+	Sq8SBpol06 ARG1B.1B:  0.005
+
+	Sq2SBpol14 D4.B1:  0.003
+
+	Sq3SBpol14 D4.B1:  0.010
+
+	Sq4SBpol14 D4.B1:  0.199
+
+	Sq5SBpol14 D4.A1:  0.013
+
+	Sq6SBpol14 D4.A1:  0.005
+
+	Sq7SBpol14 D4.A1:  0.006
+
+	Sq8SBpol14 D4.A1:  0.008
+
+	Sq1SBpol15 ARG2A.2A:  0.003
+
+	Sq2SBpol15 ARG2A.2A:  0.003
+
+	Sq3SBpol15 ARG2A.2A:  0.015
+
+	Sq4SBpol15 ARG2A.2A:  0.003
+
+	Sq5SBpol15 ARG2A.2A:  0.160
+
+	Sq6SBpol15 ARG2A.2A:  0.003
+
+	Sq7SBpol15 ARG2A.2A:  0.003
+
+	Sq8SBpol15 ARG2A.2A:  0.010
+
+	Sq3SBpol16 C3.B1:  0.002
+
+	Sq7SBpol16 C3.A1:  0.071
+
+	Sq8SBpol16 C3.A1:  0.002
+
+	Sq1SBpol17 D1.B2:  0.039
+
+	Sq2SBpol17 D1.B2:  0.002
+
+	Sq2SBpol18 C1.B2:  0.002
+
+	Sq5SBpol18 C1.A2:  0.002
+
+	Sq8SBpol18 C1.A2:  0.002
+
+	Sq3SBpol19 C1.B1:  0.002
+
+	Sq8SBpol19 C1.A1:  0.002
+
+	Sq2SBpol20 C4.B1:  0.002
+
+	Sq4SBpol20 C4.B1:  0.002
+
+	Sq5SBpol20 C4.A1:  0.002
+
+	Sq7SBpol20 C4.A1:  0.003
+
+	Sq2SBpol21 C5.B2:  0.002
+
+	Sq3SBpol21 C5.A2:  0.002
+
+	Sq4SBpol21 C5.B2:  0.002
+
+	Sq8SBpol21 C5.A2:  0.002
+
+	Sq1SBpol22 C4.B2:  0.008
+
+	Sq3SBpol22 C4.B2:  0.002
+
+	Sq7SBpol22 C4.A2:  0.002
+
+	Sq1SBpol23 ARG2B.2B:  0.006
+
+	Sq2SBpol23 ARG2B.2B:  0.155
+
+	Sq3SBpol23 ARG2B.2B:  0.049
+
+	Sq4SBpol23 ARG2B.2B:  0.102
+
+	Sq5SBpol23 ARG2B.2B:  0.006
+
+	Sq6SBpol23 ARG2B.2B:  0.070
+
+	Sq7SBpol23 ARG2B.2B:  0.008
+
+	Sq8SBpol23 ARG2B.2B:  0.005
+
+	Sq3SBpol24 C3.B2:  0.002
+
+	Sq4SBpol24 C3.B2:  0.002
+
+	Sq8SBpol24 C3.A2:  0.003
+
+	Sq1SBpol25 ARG1A.1A:  0.006
+
+	Sq2SBpol25 ARG1A.1A:  0.010
+
+	Sq3SBpol25 ARG1A.1A:  0.047
+
+	Sq4SBpol25 ARG1A.1A:  0.285
+
+	Sq5SBpol25 ARG1A.1A:  0.241
+
+	Sq6SBpol25 ARG1A.1A:  0.036
+
+	Sq7SBpol25 ARG1A.1A:  0.299
+
+	Sq8SBpol25 ARG1A.1A:  0.422
+
+	Sq1SBpol30 C5.B1:  0.141
+
+	Sq7SBpol30 C5.A1:  0.002
+
+	Sq8SBpol30 C5.A1:  0.002
+
+== August ==
+=== Off ===
+	Sq7SBpol14 D4.A1:  0.016
+
+	Sq3SBpol15 ARG2A.2A:  0.310
+
+	Sq8SBpol15 ARG2A.2A:  0.377
+
+	Sq2SBpol20 C4.B1:  0.046
+
+	Sq4SBpol20 C4.B1:  0.046
+
+	Sq5SBpol20 C4.A1:  0.046
+
+	Sq7SBpol20 C4.A1:  0.046
+
+	Sq4SBpol25 ARG1A.1A:  0.139
+
+	Sq7SBpol25 ARG1A.1A:  0.046
+
+=== Bad ===
+	Sq1SBpol05 D4.B2:  0.002
+
+	Sq6SBpol05 D4.A2:  0.060
+
+	Sq8SBpol05 D4.A2:  0.002
+
+	Sq1SBpol06 ARG1B.1B:  0.002
+
+	Sq2SBpol06 ARG1B.1B:  0.002
+
+	Sq3SBpol06 ARG1B.1B:  0.002
+
+	Sq4SBpol06 ARG1B.1B:  0.002
+
+	Sq5SBpol06 ARG1B.1B:  0.002
+
+	Sq6SBpol06 ARG1B.1B:  0.002
+
+	Sq7SBpol06 ARG1B.1B:  0.002
+
+	Sq8SBpol06 ARG1B.1B:  0.002
+
+	Sq2SBpol14 D4.B1:  0.002
+
+	Sq3SBpol14 D4.B1:  0.002
+
+	Sq4SBpol14 D4.B1:  0.284
+
+	Sq5SBpol14 D4.A1:  0.002
+
+	Sq1SBpol15 ARG2A.2A:  0.002
+
+	Sq2SBpol15 ARG2A.2A:  0.002
+
+	Sq3SBpol15 ARG2A.2A:  0.015
+
+	Sq4SBpol15 ARG2A.2A:  0.002
+
+	Sq5SBpol15 ARG2A.2A:  0.002
+
+	Sq6SBpol15 ARG2A.2A:  0.002
+
+	Sq7SBpol15 ARG2A.2A:  0.002
+
+	Sq8SBpol15 ARG2A.2A:  0.018
+
+	Sq7SBpol16 C3.A1:  0.082
+
+	Sq1SBpol17 D1.B2:  0.041
+
+	Sq7SBpol17 D1.A2:  0.023
+
+	Sq1SBpol22 C4.B2:  0.002
+
+	Sq1SBpol23 ARG2B.2B:  0.002
+
+	Sq2SBpol23 ARG2B.2B:  0.002
+
+	Sq3SBpol23 ARG2B.2B:  0.002
+
+	Sq4SBpol23 ARG2B.2B:  0.002
+
+	Sq5SBpol23 ARG2B.2B:  0.002
+
+	Sq6SBpol23 ARG2B.2B:  0.002
+
+	Sq7SBpol23 ARG2B.2B:  0.002
+
+	Sq8SBpol23 ARG2B.2B:  0.002
+
+	Sq1SBpol25 ARG1A.1A:  0.042
+
+	Sq2SBpol25 ARG1A.1A:  0.002
+
+	Sq3SBpol25 ARG1A.1A:  0.002
+
+	Sq4SBpol25 ARG1A.1A:  0.250
+
+	Sq6SBpol25 ARG1A.1A:  0.028
+
+	Sq7SBpol25 ARG1A.1A:  0.407
+
+	Sq8SBpol25 ARG1A.1A:  0.214
+
+== September ==
+=== Off ===
+	Sq1SBpol03 D2.B1:  0.003
+
+	Sq2SBpol03 D2.B1:  0.003
+
+	Sq3SBpol03 D2.B1:  0.003
+
+	Sq4SBpol03 D2.B1:  0.003
+
+	Sq5SBpol03 D2.A1:  0.003
+
+	Sq6SBpol03 D2.A1:  0.003
+
+	Sq7SBpol03 D2.A1:  0.003
+
+	Sq8SBpol03 D2.A1:  0.003
+
+	Sq2SBpol04 D2.B2:  0.003
+
+	Sq3SBpol04 D2.A2:  0.003
+
+	Sq4SBpol04 D2.B2:  0.003
+
+	Sq5SBpol04 D2.A2:  0.003
+
+	Sq6SBpol04 D2.A2:  0.003
+
+	Sq7SBpol04 D2.A2:  0.003
+
+	Sq8SBpol04 D2.A2:  0.003
+
+	Sq1SBpol05 D4.B2:  0.003
+
+	Sq2SBpol05 D4.B2:  0.003
+
+	Sq3SBpol05 D4.B2:  0.003
+
+	Sq4SBpol05 D4.B2:  0.003
+
+	Sq7SBpol05 D4.A2:  0.003
+
+	Sq8SBpol05 D4.A2:  0.003
+
+	Sq1SBpol06 ARG1B.1B:  0.003
+
+	Sq2SBpol06 ARG1B.1B:  0.003
+
+	Sq3SBpol06 ARG1B.1B:  0.003
+
+	Sq4SBpol06 ARG1B.1B:  0.003
+
+	Sq5SBpol06 ARG1B.1B:  0.003
+
+	Sq6SBpol06 ARG1B.1B:  0.003
+
+	Sq7SBpol06 ARG1B.1B:  0.003
+
+	Sq8SBpol06 ARG1B.1B:  0.003
+
+	Sq1SBpol07 D1.B1:  0.003
+
+	Sq2SBpol07 D1.B1:  0.003
+
+	Sq3SBpol07 D1.B1:  0.003
+
+	Sq4SBpol07 D1.B1:  0.003
+
+	Sq5SBpol07 D1.A1:  0.003
+
+	Sq6SBpol07 D1.A1:  0.003
+
+	Sq7SBpol07 D1.A1:  0.003
+
+	Sq8SBpol07 D1.A1:  0.003
+
+	Sq1SBpol14 D4.B1:  0.003
+
+	Sq2SBpol14 D4.B1:  0.003
+
+	Sq3SBpol14 D4.B1:  0.003
+
+	Sq4SBpol14 D4.B1:  0.491
+
+	Sq5SBpol14 D4.A1:  0.003
+
+	Sq6SBpol14 D4.A1:  0.003
+
+	Sq7SBpol14 D4.A1:  0.003
+
+	Sq8SBpol14 D4.A1:  0.003
+
+	Sq1SBpol15 ARG2A.2A:  0.003
+
+	Sq2SBpol15 ARG2A.2A:  0.003
+
+	Sq3SBpol15 ARG2A.2A:  0.133
+
+	Sq4SBpol15 ARG2A.2A:  0.003
+
+	Sq5SBpol15 ARG2A.2A:  0.003
+
+	Sq6SBpol15 ARG2A.2A:  0.003
+
+	Sq7SBpol15 ARG2A.2A:  0.003
+
+	Sq8SBpol15 ARG2A.2A:  0.369
+
+	Sq1SBpol16 C3.B1:  0.003
+
+	Sq2SBpol16 C3.B1:  0.003
+
+	Sq3SBpol16 C3.B1:  0.003
+
+	Sq4SBpol16 C3.B1:  0.003
+
+	Sq5SBpol16 C3.A1:  0.003
+
+	Sq6SBpol16 C3.A1:  0.003
+
+	Sq8SBpol16 C3.A1:  0.003
+
+	Sq2SBpol17 D1.B2:  0.003
+
+	Sq3SBpol17 D1.B2:  0.003
+
+	Sq4SBpol17 D1.B2:  0.003
+
+	Sq5SBpol17 D1.A2:  0.003
+
+	Sq6SBpol17 D1.A2:  0.003
+
+	Sq7SBpol17 D1.A2:  0.003
+
+	Sq8SBpol17 D1.A2:  0.003
+
+	Sq1SBpol18 C1.B2:  0.003
+
+	Sq2SBpol18 C1.B2:  0.003
+
+	Sq3SBpol18 C1.B2:  0.003
+
+	Sq4SBpol18 C1.B2:  0.003
+
+	Sq5SBpol18 C1.A2:  0.003
+
+	Sq6SBpol18 C1.A2:  0.003
+
+	Sq7SBpol18 C1.A2:  0.003
+
+	Sq8SBpol18 C1.A2:  0.003
+
+	Sq1SBpol19 C1.B1:  0.003
+
+	Sq2SBpol19 C1.B1:  0.003
+
+	Sq3SBpol19 C1.B1:  0.003
+
+	Sq4SBpol19 C1.B1:  0.003
+
+	Sq5SBpol19 C1.A1:  0.003
+
+	Sq6SBpol19 C1.A1:  0.003
+
+	Sq7SBpol19 C1.A1:  0.003
+
+	Sq8SBpol19 C1.A1:  0.003
+
+	Sq2SBpol20 C4.B1:  0.003
+
+	Sq4SBpol20 C4.B1:  0.003
+
+	Sq5SBpol20 C4.A1:  0.003
+
+	Sq7SBpol20 C4.A1:  0.003
+
+	Sq2SBpol21 C5.B2:  0.003
+
+	Sq3SBpol21 C5.A2:  0.003
+
+	Sq4SBpol21 C5.B2:  0.003
+
+	Sq7SBpol21 C5.A2:  0.003
+
+	Sq8SBpol21 C5.A2:  0.003
+
+	Sq1SBpol22 C4.B2:  0.003
+
+	Sq2SBpol22 C4.B2:  0.003
+
+	Sq3SBpol22 C4.B2:  0.003
+
+	Sq4SBpol22 C4.B2:  0.003
+
+	Sq5SBpol22 C4.A2:  0.003
+
+	Sq6SBpol22 C4.A2:  0.003
+
+	Sq7SBpol22 C4.A2:  0.003
+
+	Sq8SBpol22 C4.A2:  0.003
+
+	Sq1SBpol23 ARG2B.2B:  0.003
+
+	Sq2SBpol23 ARG2B.2B:  0.003
+
+	Sq3SBpol23 ARG2B.2B:  0.003
+
+	Sq4SBpol23 ARG2B.2B:  0.003
+
+	Sq5SBpol23 ARG2B.2B:  0.003
+
+	Sq6SBpol23 ARG2B.2B:  0.003
+
+	Sq7SBpol23 ARG2B.2B:  0.003
+
+	Sq8SBpol23 ARG2B.2B:  0.003
+
+	Sq1SBpol24 C3.B2:  0.003
+
+	Sq2SBpol24 C3.B2:  0.003
+
+	Sq3SBpol24 C3.B2:  0.003
+
+	Sq4SBpol24 C3.B2:  0.003
+
+	Sq8SBpol24 C3.A2:  0.003
+
+	Sq1SBpol25 ARG1A.1A:  0.003
+
+	Sq2SBpol25 ARG1A.1A:  0.003
+
+	Sq3SBpol25 ARG1A.1A:  0.003
+
+	Sq4SBpol25 ARG1A.1A:  0.003
+
+	Sq5SBpol25 ARG1A.1A:  0.003
+
+	Sq6SBpol25 ARG1A.1A:  0.003
+
+	Sq7SBpol25 ARG1A.1A:  0.100
+
+	Sq8SBpol25 ARG1A.1A:  0.003
+
+	Sq1SBpol30 C5.B1:  0.003
+
+	Sq2SBpol30 C5.B1:  0.003
+
+	Sq3SBpol30 C5.B1:  0.003
+
+	Sq4SBpol30 C5.B1:  0.003
+
+	Sq5SBpol30 C5.A1:  0.003
+
+	Sq6SBpol30 C5.A1:  0.003
+
+	Sq7SBpol30 C5.A1:  0.003
+
+	Sq8SBpol30 C5.A1:  0.003
+
+=== Bad ===
+	Sq6SBpol05 D4.A2:  0.043
+
+	Sq4SBpol14 D4.B1:  0.454
+
+	Sq3SBpol15 ARG2A.2A:  0.009
+
+	Sq8SBpol15 ARG2A.2A:  0.017
+
+	Sq7SBpol16 C3.A1:  0.085
+
+	Sq1SBpol17 D1.B2:  0.043
+
+	Sq2SBpol23 ARG2B.2B:  0.002
+
+	Sq1SBpol25 ARG1A.1A:  0.218
+
+	Sq3SBpol25 ARG1A.1A:  0.005
+
+	Sq4SBpol25 ARG1A.1A:  0.429
+
+	Sq7SBpol25 ARG1A.1A:  0.493
+
+	Sq8SBpol25 ARG1A.1A:  0.218
+
+== October ==
+=== Off ===
+	Sq4SBpol14 D4.B1:  0.263
+
+	Sq3SBpol15 ARG2A.2A:  0.044
+
+	Sq8SBpol15 ARG2A.2A:  0.306
+
+	Sq6SBpol23 ARG2B.2B:  0.044
+
+	Sq8SBpol25 ARG1A.1A:  0.044
+
+=== Bad ===
+	Sq6SBpol05 D4.A2:  0.114
+
+	Sq1SBpol06 ARG1B.1B:  0.005
+
+	Sq2SBpol06 ARG1B.1B:  0.005
+
+	Sq3SBpol06 ARG1B.1B:  0.005
+
+	Sq4SBpol06 ARG1B.1B:  0.005
+
+	Sq5SBpol06 ARG1B.1B:  0.002
+
+	Sq6SBpol06 ARG1B.1B:  0.005
+
+	Sq7SBpol06 ARG1B.1B:  0.005
+
+	Sq8SBpol06 ARG1B.1B:  0.005
+
+	Sq3SBpol14 D4.B1:  0.005
+
+	Sq5SBpol14 D4.A1:  0.005
+
+	Sq1SBpol15 ARG2A.2A:  0.005
+
+	Sq2SBpol15 ARG2A.2A:  0.005
+
+	Sq3SBpol15 ARG2A.2A:  0.005
+
+	Sq4SBpol15 ARG2A.2A:  0.005
+
+	Sq5SBpol15 ARG2A.2A:  0.026
+
+	Sq6SBpol15 ARG2A.2A:  0.005
+
+	Sq7SBpol15 ARG2A.2A:  0.005
+
+	Sq8SBpol15 ARG2A.2A:  0.016
+
+	Sq7SBpol16 C3.A1:  0.161
+
+	Sq1SBpol17 D1.B2:  0.080
+
+	Sq1SBpol23 ARG2B.2B:  0.005
+
+	Sq2SBpol23 ARG2B.2B:  0.008
+
+	Sq3SBpol23 ARG2B.2B:  0.005
+
+	Sq4SBpol23 ARG2B.2B:  0.005
+
+	Sq5SBpol23 ARG2B.2B:  0.005
+
+	Sq6SBpol23 ARG2B.2B:  0.041
+
+	Sq7SBpol23 ARG2B.2B:  0.005
+
+	Sq8SBpol23 ARG2B.2B:  0.005
+
+	Sq1SBpol25 ARG1A.1A:  0.047
+
+	Sq2SBpol25 ARG1A.1A:  0.015
+
+	Sq3SBpol25 ARG1A.1A:  0.005
+
+	Sq4SBpol25 ARG1A.1A:  0.239
+
+	Sq6SBpol25 ARG1A.1A:  0.005
+
+	Sq7SBpol25 ARG1A.1A:  0.498
+
+	Sq8SBpol25 ARG1A.1A:  0.166
+
+== November ==
+=== Off ===
+	Sq1SBpol03 D2.B1:  0.004
+
+	Sq2SBpol03 D2.B1:  0.004
+
+	Sq3SBpol03 D2.B1:  0.004
+
+	Sq4SBpol03 D2.B1:  0.004
+
+	Sq5SBpol03 D2.A1:  0.004
+
+	Sq6SBpol03 D2.A1:  0.004
+
+	Sq7SBpol03 D2.A1:  0.004
+
+	Sq8SBpol03 D2.A1:  0.004
+
+	Sq2SBpol04 D2.B2:  0.298
+
+	Sq3SBpol04 D2.A2:  0.298
+
+	Sq4SBpol04 D2.B2:  0.298
+
+	Sq5SBpol04 D2.A2:  0.004
+
+	Sq6SBpol04 D2.A2:  0.004
+
+	Sq7SBpol04 D2.A2:  0.004
+
+	Sq8SBpol04 D2.A2:  0.004
+
+	Sq1SBpol05 D4.B2:  0.004
+
+	Sq2SBpol05 D4.B2:  0.004
+
+	Sq3SBpol05 D4.B2:  0.004
+
+	Sq4SBpol05 D4.B2:  0.004
+
+	Sq7SBpol05 D4.A2:  0.004
+
+	Sq8SBpol05 D4.A2:  0.004
+
+	Sq1SBpol06 ARG1B.1B:  0.004
+
+	Sq2SBpol06 ARG1B.1B:  0.004
+
+	Sq3SBpol06 ARG1B.1B:  0.004
+
+	Sq4SBpol06 ARG1B.1B:  0.004
+
+	Sq5SBpol06 ARG1B.1B:  0.004
+
+	Sq6SBpol06 ARG1B.1B:  0.004
+
+	Sq7SBpol06 ARG1B.1B:  0.004
+
+	Sq8SBpol06 ARG1B.1B:  0.004
+
+	Sq1SBpol07 D1.B1:  0.004
+
+	Sq2SBpol07 D1.B1:  0.004
+
+	Sq3SBpol07 D1.B1:  0.004
+
+	Sq4SBpol07 D1.B1:  0.004
+
+	Sq5SBpol07 D1.A1:  0.004
+
+	Sq6SBpol07 D1.A1:  0.004
+
+	Sq7SBpol07 D1.A1:  0.004
+
+	Sq8SBpol07 D1.A1:  0.004
+
+	Sq1SBpol14 D4.B1:  0.004
+
+	Sq2SBpol14 D4.B1:  0.004
+
+	Sq3SBpol14 D4.B1:  0.004
+
+	Sq4SBpol14 D4.B1:  0.368
+
+	Sq5SBpol14 D4.A1:  0.004
+
+	Sq6SBpol14 D4.A1:  0.004
+
+	Sq7SBpol14 D4.A1:  0.004
+
+	Sq8SBpol14 D4.A1:  0.004
+
+	Sq1SBpol15 ARG2A.2A:  0.004
+
+	Sq2SBpol15 ARG2A.2A:  0.004
+
+	Sq3SBpol15 ARG2A.2A:  0.131
+
+	Sq4SBpol15 ARG2A.2A:  0.004
+
+	Sq5SBpol15 ARG2A.2A:  0.004
+
+	Sq6SBpol15 ARG2A.2A:  0.004
+
+	Sq7SBpol15 ARG2A.2A:  0.004
+
+	Sq8SBpol15 ARG2A.2A:  0.193
+
+	Sq1SBpol16 C3.B1:  0.004
+
+	Sq2SBpol16 C3.B1:  0.004
+
+	Sq3SBpol16 C3.B1:  0.004
+
+	Sq4SBpol16 C3.B1:  0.004
+
+	Sq5SBpol16 C3.A1:  0.004
+
+	Sq6SBpol16 C3.A1:  0.004
+
+	Sq8SBpol16 C3.A1:  0.004
+
+	Sq2SBpol17 D1.B2:  0.004
+
+	Sq3SBpol17 D1.B2:  0.004
+
+	Sq4SBpol17 D1.B2:  0.004
+
+	Sq5SBpol17 D1.A2:  0.004
+
+	Sq6SBpol17 D1.A2:  0.004
+
+	Sq7SBpol17 D1.A2:  0.004
+
+	Sq8SBpol17 D1.A2:  0.004
+
+	Sq1SBpol18 C1.B2:  0.004
+
+	Sq2SBpol18 C1.B2:  0.004
+
+	Sq3SBpol18 C1.B2:  0.004
+
+	Sq4SBpol18 C1.B2:  0.004
+
+	Sq5SBpol18 C1.A2:  0.004
+
+	Sq6SBpol18 C1.A2:  0.004
+
+	Sq7SBpol18 C1.A2:  0.004
+
+	Sq8SBpol18 C1.A2:  0.004
+
+	Sq1SBpol19 C1.B1:  0.004
+
+	Sq2SBpol19 C1.B1:  0.004
+
+	Sq3SBpol19 C1.B1:  0.004
+
+	Sq4SBpol19 C1.B1:  0.004
+
+	Sq5SBpol19 C1.A1:  0.004
+
+	Sq6SBpol19 C1.A1:  0.004
+
+	Sq7SBpol19 C1.A1:  0.004
+
+	Sq8SBpol19 C1.A1:  0.004
+
+	Sq2SBpol20 C4.B1:  0.004
+
+	Sq4SBpol20 C4.B1:  0.004
+
+	Sq5SBpol20 C4.A1:  0.004
+
+	Sq7SBpol20 C4.A1:  0.004
+
+	Sq2SBpol21 C5.B2:  0.004
+
+	Sq3SBpol21 C5.A2:  0.004
+
+	Sq4SBpol21 C5.B2:  0.004
+
+	Sq7SBpol21 C5.A2:  0.004
+
+	Sq8SBpol21 C5.A2:  0.004
+
+	Sq1SBpol22 C4.B2:  0.004
+
+	Sq2SBpol22 C4.B2:  0.004
+
+	Sq3SBpol22 C4.B2:  0.004
+
+	Sq4SBpol22 C4.B2:  0.004
+
+	Sq5SBpol22 C4.A2:  0.004
+
+	Sq6SBpol22 C4.A2:  0.004
+
+	Sq7SBpol22 C4.A2:  0.004
+
+	Sq8SBpol22 C4.A2:  0.004
+
+	Sq1SBpol23 ARG2B.2B:  0.004
+
+	Sq2SBpol23 ARG2B.2B:  0.099
+
+	Sq3SBpol23 ARG2B.2B:  0.004
+
+	Sq4SBpol23 ARG2B.2B:  0.004
+
+	Sq5SBpol23 ARG2B.2B:  0.004
+
+	Sq6SBpol23 ARG2B.2B:  0.004
+
+	Sq7SBpol23 ARG2B.2B:  0.004
+
+	Sq8SBpol23 ARG2B.2B:  0.004
+
+	Sq1SBpol24 C3.B2:  0.004
+
+	Sq2SBpol24 C3.B2:  0.004
+
+	Sq3SBpol24 C3.B2:  0.004
+
+	Sq4SBpol24 C3.B2:  0.004
+
+	Sq1SBpol25 ARG1A.1A:  0.004
+
+	Sq2SBpol25 ARG1A.1A:  0.004
+
+	Sq3SBpol25 ARG1A.1A:  0.004
+
+	Sq4SBpol25 ARG1A.1A:  0.116
+
+	Sq5SBpol25 ARG1A.1A:  0.004
+
+	Sq6SBpol25 ARG1A.1A:  0.004
+
+	Sq7SBpol25 ARG1A.1A:  0.039
+
+	Sq8SBpol25 ARG1A.1A:  0.004
+
+	Sq1SBpol30 C5.B1:  0.004
+
+	Sq2SBpol30 C5.B1:  0.004
+
+	Sq5SBpol30 C5.A1:  0.004
+
+	Sq6SBpol30 C5.A1:  0.004
+
+	Sq7SBpol30 C5.A1:  0.004
+
+	Sq8SBpol30 C5.A1:  0.004
+
+=== Bad ===
+	Sq1SBpol03 D2.B1:  0.002
+
+	Sq2SBpol03 D2.B1:  0.118
+
+	Sq3SBpol03 D2.B1:  0.006
+
+	Sq4SBpol03 D2.B1:  0.004
+
+	Sq5SBpol03 D2.A1:  0.002
+
+	Sq6SBpol03 D2.A1:  0.002
+
+	Sq7SBpol03 D2.A1:  0.105
+
+	Sq8SBpol03 D2.A1:  0.002
+
+	Sq2SBpol04 D2.B2:  0.169
+
+	Sq3SBpol04 D2.A2:  0.075
+
+	Sq4SBpol04 D2.B2:  0.096
+
+	Sq5SBpol04 D2.A2:  0.002
+
+	Sq6SBpol04 D2.A2:  0.019
+
+	Sq7SBpol04 D2.A2:  0.015
+
+	Sq8SBpol04 D2.A2:  0.002
+
+	Sq1SBpol05 D4.B2:  0.099
+
+	Sq2SBpol05 D4.B2:  0.002
+
+	Sq3SBpol05 D4.B2:  0.026
+
+	Sq4SBpol05 D4.B2:  0.006
+
+	Sq6SBpol05 D4.A2:  0.064
+
+	Sq7SBpol05 D4.A2:  0.011
+
+	Sq8SBpol05 D4.A2:  0.036
+
+	Sq1SBpol06 ARG1B.1B:  0.233
+
+	Sq2SBpol06 ARG1B.1B:  0.203
+
+	Sq3SBpol06 ARG1B.1B:  0.094
+
+	Sq4SBpol06 ARG1B.1B:  0.244
+
+	Sq5SBpol06 ARG1B.1B:  0.165
+
+	Sq6SBpol06 ARG1B.1B:  0.099
+
+	Sq7SBpol06 ARG1B.1B:  0.143
+
+	Sq8SBpol06 ARG1B.1B:  0.105
+
+	Sq1SBpol07 D1.B1:  0.002
+
+	Sq2SBpol07 D1.B1:  0.002
+
+	Sq3SBpol07 D1.B1:  0.002
+
+	Sq4SBpol07 D1.B1:  0.002
+
+	Sq5SBpol07 D1.A1:  0.002
+
+	Sq6SBpol07 D1.A1:  0.002
+
+	Sq7SBpol07 D1.A1:  0.006
+
+	Sq8SBpol07 D1.A1:  0.006
+
+	Sq1SBpol14 D4.B1:  0.002
+
+	Sq2SBpol14 D4.B1:  0.002
+
+	Sq3SBpol14 D4.B1:  0.041
+
+	Sq4SBpol14 D4.B1:  0.229
+
+	Sq5SBpol14 D4.A1:  0.099
+
+	Sq6SBpol14 D4.A1:  0.002
+
+	Sq7SBpol14 D4.A1:  0.146
+
+	Sq8SBpol14 D4.A1:  0.122
+
+	Sq1SBpol15 ARG2A.2A:  0.099
+
+	Sq2SBpol15 ARG2A.2A:  0.071
+
+	Sq3SBpol15 ARG2A.2A:  0.126
+
+	Sq4SBpol15 ARG2A.2A:  0.156
+
+	Sq5SBpol15 ARG2A.2A:  0.120
+
+	Sq6SBpol15 ARG2A.2A:  0.099
+
+	Sq7SBpol15 ARG2A.2A:  0.152
+
+	Sq8SBpol15 ARG2A.2A:  0.118
+
+	Sq1SBpol16 C3.B1:  0.002
+
+	Sq2SBpol16 C3.B1:  0.041
+
+	Sq3SBpol16 C3.B1:  0.056
+
+	Sq4SBpol16 C3.B1:  0.002
+
+	Sq5SBpol16 C3.A1:  0.002
+
+	Sq6SBpol16 C3.A1:  0.002
+
+	Sq7SBpol16 C3.A1:  0.139
+
+	Sq8SBpol16 C3.A1:  0.002
+
+	Sq1SBpol17 D1.B2:  0.079
+
+	Sq2SBpol17 D1.B2:  0.013
+
+	Sq3SBpol17 D1.B2:  0.028
+
+	Sq4SBpol17 D1.B2:  0.002
+
+	Sq5SBpol17 D1.A2:  0.002
+
+	Sq6SBpol17 D1.A2:  0.002
+
+	Sq7SBpol17 D1.A2:  0.002
+
+	Sq8SBpol17 D1.A2:  0.002
+
+	Sq1SBpol18 C1.B2:  0.002
+
+	Sq2SBpol18 C1.B2:  0.064
+
+	Sq3SBpol18 C1.B2:  0.073
+
+	Sq4SBpol18 C1.B2:  0.002
+
+	Sq5SBpol18 C1.A2:  0.094
+
+	Sq6SBpol18 C1.A2:  0.024
+
+	Sq7SBpol18 C1.A2:  0.002
+
+	Sq8SBpol18 C1.A2:  0.002
+
+	Sq1SBpol19 C1.B1:  0.002
+
+	Sq2SBpol19 C1.B1:  0.002
+
+	Sq3SBpol19 C1.B1:  0.013
+
+	Sq4SBpol19 C1.B1:  0.002
+
+	Sq5SBpol19 C1.A1:  0.002
+
+	Sq6SBpol19 C1.A1:  0.002
+
+	Sq7SBpol19 C1.A1:  0.079
+
+	Sq8SBpol19 C1.A1:  0.017
+
+	Sq2SBpol20 C4.B1:  0.002
+
+	Sq4SBpol20 C4.B1:  0.011
+
+	Sq5SBpol20 C4.A1:  0.002
+
+	Sq7SBpol20 C4.A1:  0.054
+
+	Sq2SBpol21 C5.B2:  0.019
+
+	Sq3SBpol21 C5.A2:  0.079
+
+	Sq4SBpol21 C5.B2:  0.002
+
+	Sq7SBpol21 C5.A2:  0.002
+
+	Sq8SBpol21 C5.A2:  0.002
+
+	Sq1SBpol22 C4.B2:  0.015
+
+	Sq2SBpol22 C4.B2:  0.047
+
+	Sq3SBpol22 C4.B2:  0.041
+
+	Sq4SBpol22 C4.B2:  0.002
+
+	Sq5SBpol22 C4.A2:  0.002
+
+	Sq6SBpol22 C4.A2:  0.002
+
+	Sq7SBpol22 C4.A2:  0.002
+
+	Sq8SBpol22 C4.A2:  0.002
+
+	Sq1SBpol23 ARG2B.2B:  0.124
+
+	Sq2SBpol23 ARG2B.2B:  0.062
+
+	Sq3SBpol23 ARG2B.2B:  0.118
+
+	Sq4SBpol23 ARG2B.2B:  0.077
+
+	Sq5SBpol23 ARG2B.2B:  0.075
+
+	Sq6SBpol23 ARG2B.2B:  0.143
+
+	Sq7SBpol23 ARG2B.2B:  0.225
+
+	Sq8SBpol23 ARG2B.2B:  0.225
+
+	Sq1SBpol24 C3.B2:  0.004
+
+	Sq2SBpol24 C3.B2:  0.036
+
+	Sq3SBpol24 C3.B2:  0.092
+
+	Sq4SBpol24 C3.B2:  0.002
+
+	Sq1SBpol25 ARG1A.1A:  0.137
+
+	Sq2SBpol25 ARG1A.1A:  0.099
+
+	Sq3SBpol25 ARG1A.1A:  0.107
+
+	Sq4SBpol25 ARG1A.1A:  0.167
+
+	Sq5SBpol25 ARG1A.1A:  0.011
+
+	Sq6SBpol25 ARG1A.1A:  0.015
+
+	Sq7SBpol25 ARG1A.1A:  0.255
+
+	Sq8SBpol25 ARG1A.1A:  0.161
+
+	Sq1SBpol30 C5.B1:  0.002
+
+	Sq2SBpol30 C5.B1:  0.034
+
+	Sq5SBpol30 C5.A1:  0.002
+
+	Sq6SBpol30 C5.A1:  0.002
+
+	Sq7SBpol30 C5.A1:  0.090
+
+	Sq8SBpol30 C5.A1:  0.002
+

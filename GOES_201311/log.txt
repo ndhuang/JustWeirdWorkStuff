@@ -1,0 +1,29 @@
+131116 00:06:25 GOES is now running at a 1.1 Hz chop
+131116 00:08:17 Starting 15 minute calibrator stare
+131116 00:10:27 problems w/ GOES, we are now at 1.1 Hz
+131116 00:12:39 changing to 2 Hz
+131116 00:13:12 back to 1.1 Hz
+131116 00:23:17 mark remove, f0
+131116 00:23:26 Starting 15 minute noise stare
+131116 00:23:26 mark add, f0+f9
+131116 00:35:59 turning off GOES
+131116 00:36:46 turning on GOES
+131116 00:38:26 mark remove, f0+f9
+131116 00:39:09 Turning on housekeeping for 2 minutes
+131116 00:41:19 Starting 15 minute calibrator stare
+131116 00:41:19 mark add, f0
+131116 00:52:22 GOES dish moves el=2 --> el=4
+131116 00:56:26 GOES dish moves to el=5.5
+131116 00:56:19 mark remove, f0
+131116 00:56:28 Starting 15 minute noise stare
+131116 00:56:28 mark add, f0+f9
+131116 01:02:02 GOES dish moves in az
+131116 01:04:45 GOES dish moves to el=.5
+131116 01:11:28 mark remove, f0+f9
+131116 01:12:11 Turning on housekeeping for 2 minutes
+131116 01:14:20 Starting 15 minute calibrator stare
+131116 01:14:20 mark add, f0
+131116 01:29:20 mark remove, f0
+131116 01:29:30 Starting 15 minute noise stare
+131116 01:29:30 mark add, f0+f9
+131116 01:44:30 mark remove, f0+f9
