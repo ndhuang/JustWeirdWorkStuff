@@ -1,0 +1,138 @@
+1IDL> diff_scan_maker, 30.0+2.0*1.3/cos(40.0*!dtor), .46/cos(40.0*!dtor), 2.0, .322857, fileout='daz-33p7-0p60ds-2p0dss-19p3ams.scan'
+----------------------------------------------------
+   AZ                       |        EL
+max x =       33.741384     |    max x =      0.32285699
+max v  =      0.60048735    |    max v  =      0.39372804
+max a  =       2.0016245    |    max a  =      0.98432010
+----------------------------------------------------
+duty cycle =       111.20000 s   /       115.19000 s    =      96.5362 %
+max a  =       2.0016245
+max v  =      0.60048735
+scan v =      0.60048735
+max az =       33.741384
+AZ offset =       16.870692
+EL step took       1.62000  seconds.
+Output File = daz-33p7-0p60ds-2p0dss-19p3ams.scan
+----------------------------------------------------
+This is an AZIMUTH scan
+----------------------------------------------------
+
+IDL> diff_scan_maker, 30.0+2.0*1.3/cos(40.0*!dtor), .46/cos(40.0*!dtor), 2.0, 0.161429, fileout='daz-33p7-0p60ds-2p0dss-9p7ams.scan'
+----------------------------------------------------
+   AZ                       |        EL
+max x =       33.741384     |    max x =      0.16142900
+max v  =      0.60048735    |    max v  =      0.27832587
+max a  =       2.0016245    |    max a  =      0.99402095
+----------------------------------------------------
+duty cycle =       111.20000 s   /       114.71000 s    =      96.9401 %
+max a  =       2.0016245
+max v  =      0.60048735
+scan v =      0.60048735
+max az =       33.741384
+AZ offset =       16.870692
+EL step took       1.14000  seconds.
+Output File = daz-33p7-0p60ds-2p0dss-9p7ams.scan
+----------------------------------------------------
+This is an AZIMUTH scan
+----------------------------------------------------
+az_turnaround = 0.17366252
+az_offset = -16.870692
+
+115 s * 70 reps = 2 hrs 14 m 10 s
+2.236 hrs = 33.54 degrees of movement of the field center
+    az range: max_az + 33.54 = 67.28 degrees
+
+
+az velocity from SPTpol
+az_vel = .46 dps on-sky / cos(40.0) = 0.600487
+az_cv = 30.0 degrees ra + 1.3 degrees on-sky / cos(40.0) = 31.6970
+diff_scan_maker, az_cv, az_vel, 2.0, el_step, fileout='daz_31p7-0p60ds-2p0dss-10p0ams.scan'
+----------------------------------------------------
+   AZ                       |        EL
+max x =       32.042005     |    max x =      0.16666667
+max v  =      0.60048735    |    max v  =      0.28735633
+max a  =       2.0016245    |    max a  =       1.0262726
+----------------------------------------------------
+duty cycle =       105.54000 s   /       109.05000 s    =      96.7813 %
+max a  =       2.0016245
+max v  =      0.60048735
+scan v =      0.60048735
+max az =       32.042005
+AZ offset =       16.021003
+EL step took       1.14000  seconds.
+Output File = daz_31p7-0p60ds-2p0dss-10p0ams.scan
+----------------------------------------------------
+This is an AZIMUTH scan
+----------------------------------------------------
+
+nreps = 11.3 degrees / 10 arcmin = 68
+dEl_dither = .5 arcmin = 0.00833333 degrees
+dither steps = 10 arcmin step / .5 arcmin dithers = 20
+observation time = 109.5 s * 68 = 2.06833 hours
+full az range = 360.0 degrees / 24 hours * 2.06833 hours = 63.1 degrees
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Second set of fields:
+2h < RA < 4h -20d > dec > -30d
+4h < RA < 6h -20d > dec > -30d
+
+el_step = 10 arcmin = 0.166667
+az_vel = .46 dps on-sky / cos(30.0) = 0.531162
+az_cv = 30 d ra + (2 * 1.3 d on-sky) / cos(30.0) = 33.0022
+
+diff_scan_maker, az_cv, az_vel, 2.0, el_step, fileout='daz_33p0-0p5ds-2p0dss-10p0ams.scan'
+----------------------------------------------------
+   AZ                       |        EL
+max x =       33.266692     |    max x =      0.16666667
+max v  =      0.53116226    |    max v  =      0.28735633
+max a  =       2.0429318    |    max a  =       1.0262726
+----------------------------------------------------
+duty cycle =       124.24000 s   /       127.43000 s    =      97.4967 %
+max a  =       2.0429318
+max v  =      0.53116226
+scan v =      0.53116226
+max az =       33.266692
+AZ offset =       16.633346
+EL step took       1.14000  seconds.
+Output File = daz_33p0-0p5ds-2p0dss-10p0ams.scan
+----------------------------------------------------
+This is an AZIMUTH scan
+----------------------------------------------------
+
+nreps = 11.3 d / 10 arcmin = 68
+dEl_dither = .5 arcmin = 0.00833333 degrees
+dither steps = 10 arcmin step / .5 arcmin dithers = 20
+observation time = 127.43 s * 68 = 2.41 hours
+full az range = 360.0 degrees / 24 hours * 2.41 hours  + 33.0 = 69.15 d
+
+
+
+Take 2
+el_step = 10 arcmin = 0.166667
+az_vel = .46 dps on-sky / cos(30.0) = 0.531162
+az_cv = 30 d ra + (2 * 1.3 d on-sky) / cos(30.0) = 31.5011
+diff_scan_maker, az_cv, az_vel, 2.0, el_step, fileout='daz_31p5-0p5ds-2p0d\
+ss-10p0ams.scan
+----------------------------------------------------
+   AZ                       |        EL
+max x =       31.763489     |    max x =      0.16666700
+max v  =      0.53116202    |    max v  =      0.28735690
+max a  =       2.0429309    |    max a  =       1.0262746
+----------------------------------------------------
+duty cycle =       118.58000 s   /       121.77000 s    =      97.3803 %
+max a  =       2.0429309
+max v  =      0.53116202
+scan v =      0.53116202
+max az =       31.763489
+AZ offset =       15.881745
+EL step took       1.14000  seconds.
+Output File = daz_31p5-0p5ds-2p0dss-10p0ams.scan
+----------------------------------------------------
+This is an AZIMUTH scan
+----------------------------------------------------
+
+nreps = 11.3 d / 10 arcmin = 68
+dEl_dither = .5 arcmin = 0.00833333 degrees
+dither steps = 10 arcmin step / .5 arcmin dithers = 20
+observation time = 121.77000 s * 68 = 2.30010 hours
+full az range = 360.0 d / 24 hours * 2.3 hours + 31.8 = 66.3 d
