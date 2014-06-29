@@ -37,21 +37,28 @@ def make_map(start, stop):
         _map[band].writeToHDF5(os.path.join(OUTPUT_DIR, outname %int(band)), overwrite = True)
 
 if __name__ == '__main__':
-    times = [['140326 22:30:51', '140327 01:02:21'], # dither 6
-             ['140328 10:26:20', '140328 12:57:40'], # dither 12
-             ['140329 22:28:40', '140330 01:02:44'], # dither 18
-             ['140331 12:59:38', '140331 15:32:02'], # dither 0
-             ['140403 07:49:00', 
-              SptDatetime.now().strftime('%y%m%d %H:%M:%S')]]
-    OUTPUT_DIR = '/data/ndhuang/fast_500d_map/proj1'
-
+    # times = [['140326 22:30:51', '140327 01:02:21'], # dither 6
+    #          ['140328 10:26:20', '140328 12:57:40'], # dither 12
+    #          ['140329 22:28:40', '140330 01:02:44'], # dither 18
+    #          ['140331 12:59:38', '140331 15:32:02'], # dither 0
+    #          ['140403 07:49:00', 
+    #           SptDatetime.now().strftime('%y%m%d %H:%M:%S')]]
+    times =[['140525 05:01:19', '140525 07:40:23'], # dither 0
+            ['140525 14:16:48', '140525 16:57:01']] # dither 9
+    OUTPUT_DIR = '/data/ndhuang/fast_500d_map/run1/proj1'
+    datas = []
     for t in times:
         realtimes = logs.readSourceScanTimes(t[0], t[1], 'ra0hdec-57.5', 
                                                nscans_min = 0)
         for rt in realtimes:
             start = SptDatetime(rt[0])
             stop = SptDatetime(rt[1])
-            make_map(start, stop)
+            data = SPTDataReader(start_date = start, stop_date = stop, 
+                                 quiet = True)
+            data.readData(start, stop, correct_global_pointing = False)
+            datas.append(data)
+            break
+            # make_map(start, stop)
 
     # coadd = sum(maps)
     # ma = MapAnalyzer(delta_ell=25, set_special_bb_bins = False)

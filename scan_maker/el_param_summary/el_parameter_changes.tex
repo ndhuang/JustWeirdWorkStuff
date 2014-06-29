@@ -1,0 +1,84 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[dvipdfm]{graphicx}
+\usepackage{amsmath}
+\usepackage{caption}
+\usepackage{subcaption}
+\newcommand{\figtitle}[1]{
+  {
+    \centering
+    \large\textbf{#1}
+    \par\medskip
+  }
+}
+
+\begin{document}
+\section{Brief Background}
+On 2014-05-04, we ran a set of tests to probe changes to control loop 
+parameters (telescope\_el\_tests\_05May2014.sch).  The tests were a subset of 
+those run on 2014-04-30 (telescope\_el\_tests\_30Apr2014.sch).  
+The schedule runs
+a series of el steps of various size and duration (the duration is defined as 
+the time taken to step up or down).  They are all performed with
+constant jerk.  The following table shows the step sizes and durations.  All
+possible permutations were run.  For the larger steps and shorter times, a
+maximum acceleration was applied that made the actual time larger.  Each scan 
+is run 5 times.
+
+\begin{tabular}{|r|c|c|c|c|c|c|}
+  \hline 
+  Step Size (arcmin) & 3.5 & 6.0 & 12.0 & 20.0 & 40.0 & 80.0 \\
+  \hline
+  Duration (seconds) & 0.5 & 1.0 & 2.0 & 4.0 & 8.0  &  \\
+  \hline
+\end{tabular}
+
+We ran this schedule 4 times, with different values for the control loop:
+
+\begin{tabular}{|r|c|c|c|c|}
+  \hline
+   & Test 1 (normal) & Test 2 (10\% reduction) & 
+  Test 3 (20\% reduction) & Test 4 (30\%) \\
+  \hline
+  El Lead Break & 0.10 & 0.09 & 0.08 & 0.07 \\
+  El Crossover Freq & 0.450 & 0.405 & .0360 & 0.315 \\
+  El Lag Break & 2.0 & 1.8 & 1.6 & 1.4 \\
+  \hline
+\end{tabular}
+
+This leaves us with 4 sets of 5 for each scan.  To get some useful information
+out of this, I stacked the scans, and then differenced them.
+
+\section{Method}
+%% Each set of 5 scans (taken with the same control loop parameters) is stacked,
+%% such that the sum of errors squared is minimized.  More concretely the sum
+
+%% is minimized.  $\vec{scan}_3$ is an arbitrary choice, but it works well enough.
+
+Each set of 5 scans (run with the same control loop parameters) is temporally 
+aligned.  The method I use to do this leads to a maximum rms error of less than
+10 arcmin in most scans.  There are some that fail spectacularly, likely due to
+either glitches or other single events in one scan.  I have not included
+any data from these scans.
+
+\subsection{Details of the Alignment}
+To correctly align the scans, I give each scan a temporal shift with respect to
+an arbitrarily chosen scan.  To be specific, I minimize the sum
+\begin{equation}
+  \sum_{i=1}^{5} \left(\vec{\mathrm{scan}}_{match} - \vec{\mathrm{scan}}_i\right)^2
+\end{equation}
+where scan$_i$ has been shifted $n$ points relative to scan$_{match}$.
+By minimizing this sum, I align 4 of the scans to the arbitrarily chosen 
+``match scan''.
+
+\section{Results}
+These tests seem to tell us that our current control loop parameters are better
+than the any of the changes we tried.  In a few cases, the relaxed parameters
+give a lower overshoot, but the total settling time is longer.
+
+We can also see that some steps cause oscillations on top of the overshoot
+(see test2\_del-6p0ams-8p0s on page~\pageref{oscillations}).  
+This only happens in the smaller steps, but there does not appear to be 
+any further trend.
+\include{plots}
+\end{document}

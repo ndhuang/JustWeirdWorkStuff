@@ -78,3 +78,62 @@ Total:									  29:55
 Hold time:								 ~32:00
 We might have time to fit in 1 (of 3) focus positions per observing day.  
 Otherwise, we'll lose one field scan per week to do the full focus observation
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+fast scan with new profiles, and settling time for el
+
+>>> import diff_scan_maker as sm
+>>> el_step = 16.3 / 109 = 8.972477 arc minutes
+>>> az_cv = 60 + 1.3 / cos(deg2rad(65)) = 63.07606 degrees
+>>> az_vel = 2 degrees / second
+>>> sm.smoothAccSettle(az_cv, az_vel, 2.0, el_step, settling_time, filename = 'daz_63p1-2p0ds-2p0dss-9p0ams.scan')
+    Az           |      El 
+throw = 68.407   |  throw = 0.150 
+max v = 2.000    |  max v = 0.102 
+max a = 1.990    |  max a = 0.140 
+max j = 1.100    |  max j = 0.300 
+duty cycle =   63.080s / 71.080s = 88.7 %
+This is an az scan
+Az offset: -34.203134
+
+63.080 - 71.080 = 8 seconds of az turnaround
+8.0 - 1.08 = 6.92 seconds of el step + 1.08 seconds to settle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+new profile, settling time half of turnaround
+>>> import diff_scan_maker as sm
+>>> el_step = 16.3 / 109 = 8.972477 arc minutes
+>>> az_cv = 60 + 1.3 / cos(deg2rad(65)) = 63.07606 degrees
+>>> az_vel = 2 degrees / second
+>>> settling_time = 2.0 seconds
+>>> sm.smoothAccSettle(az_cv, az_vel, 2.0, el_step, settling_time, filename = '/home/ndhuang/code/fast_500d/schedule/daz_63p1-2p0ds-2p0dss-9p0ams.scan')
+200
+    Az           |      El 
+throw = 68.407   |  throw = 0.150 
+max v = 2.000    |  max v = 0.150 
+max a = 1.990    |  max a = 0.299 
+max j = 1.100    |  max j = 0.700 
+duty cycle =   63.080s / 71.080s = 88.7 %
+This is an az scan
+Az offset: -34.203134
+
+total time = 109 * 71.08 = 2.152 hours
+az range = 2.152 * 15 + 68.407 = 100.7 degrees
+dEl_dither = .5 arcmin
+nEl_dither = el_step / dEl_dither = 17.9 --> 18
+
+
+Observing day
+noise_stare.sch                                                           00:10
+scan_dec-57p5_15ddec_withCal_25May2014.sch(ra0hdec-57.5, 1, 0, 0, true)   04:10
+scan_dec-57p5_15ddec_withCal_25May2014.sch(ra0hdec-57.5, 1, 1, 1, false)  02:40
+cenA_fast_point.sch                                                       00:35
+scan_dec-57p5_15ddec_withCal_25May2014.sch(ra0hdec-57.5, 1, 2, 4, false)  08:00
+                                                                          15:37
+
+spt_cal_vs_el_with_nod_short_013012.sch                                   00:23
+rcw38_fast_point.sch                                                      00:42
+scan_dec-57p5_15ddec_withCal_25May2014.sch(ra0hdec-57.5, 1, 5, 9, false)  13:20
+spt_calib_sweep_highfreq_20120419_nowarmup.sch( ra0hdec-57.5 )            00:13
+                                                                          14:18
+Total:                                                                    29:55

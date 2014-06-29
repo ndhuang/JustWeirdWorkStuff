@@ -1,0 +1,139 @@
+HWM Dir /home/ndhuang/spt_code/HardwareMaps/hwm_20140318 140504 13:36:38
+Loading from DFML HWM
+loaded other info /home/ndhuang/spt_code/HardwareMaps/hwm_20140318/OtherInfo/dv_del.json
+loaded other info /home/ndhuang/spt_code/HardwareMaps/hwm_20140318/OtherInfo/RNormal.json
+loaded other info /home/ndhuang/spt_code/HardwareMaps/hwm_20140318/BiasProperties/BiasProps.json
+/home/ndhuang/spt_code/sptpol_software/observation/receiver.py:3244: RuntimeWarning: 
+
+*********** We really want a boloIndex attribute, but it's not in this hardware map!***********
+
+  warnings.warn("\n\n*********** We really want a boloIndex attribute, but it's not in this hardware map!***********\n", RuntimeWarning)
+HWM Dir /home/ndhuang/spt_code/HardwareMaps/hwm_20140318 140504 13:36:38
+Loading from DFML HWM
+loaded other info /home/ndhuang/spt_code/HardwareMaps/hwm_20140318/OtherInfo/dv_del.json
+loaded other info /home/ndhuang/spt_code/HardwareMaps/hwm_20140318/OtherInfo/RNormal.json
+loaded other info /home/ndhuang/spt_code/HardwareMaps/hwm_20140318/BiasProperties/BiasProps.json
+HWM Dir /home/ndhuang/spt_code/HardwareMaps/hwm_20140318 140504 13:36:38
+Loading from DFML HWM
+loaded other info /home/ndhuang/spt_code/HardwareMaps/hwm_20140318/OtherInfo/dv_del.json
+loaded other info /home/ndhuang/spt_code/HardwareMaps/hwm_20140318/OtherInfo/RNormal.json
+loaded other info /home/ndhuang/spt_code/HardwareMaps/hwm_20140318/BiasProperties/BiasProps.json
+HWM Dir /home/ndhuang/spt_code/HardwareMaps/hwm_20140318 140504 13:36:38
+Loading from DFML HWM
+loaded other info /home/ndhuang/spt_code/HardwareMaps/hwm_20140318/OtherInfo/dv_del.json
+loaded other info /home/ndhuang/spt_code/HardwareMaps/hwm_20140318/OtherInfo/RNormal.json
+loaded other info /home/ndhuang/spt_code/HardwareMaps/hwm_20140318/BiasProperties/BiasProps.json
+==============================test2_del-6p0ams-8p0s====================
+Reading SPTpol data from the period 04-May-2014:13:54:33 to 04-May-2014:13:57:43.
+Reading...0%Reading...1%Reading...1%Reading...2%Reading...2%Reading...3%Reading...3%Reading...4%Reading...4%Reading...5%Reading...10%Reading...20%Reading...30%Reading...40%Reading...50%Reading...60%Reading...70%Reading...80%Reading...90%Reading...100%
+Elapsed seconds: 6.41454
+Arcfile reading complete. Execution time:  10.17 seconds.
+/home/ndhuang/spt_code/sptpol_software/data/readout.py:3755: RuntimeWarning: DfMUX board 120 has no valid housekeeping data in this entire observation!
+  % self.data['dfmux']['dfmux_id'][i_dfmux], RuntimeWarning)
+/home/ndhuang/spt_code/sptpol_software/data/readout.py:3755: RuntimeWarning: DfMUX board 121 has no valid housekeeping data in this entire observation!
+  % self.data['dfmux']['dfmux_id'][i_dfmux], RuntimeWarning)
+/home/ndhuang/spt_code/sptpol_software/data/readout.py:3755: RuntimeWarning: DfMUX board 122 has no valid housekeeping data in this entire observation!
+  % self.data['dfmux']['dfmux_id'][i_dfmux], RuntimeWarning)
+/home/ndhuang/spt_code/sptpol_software/data/readout.py:3755: RuntimeWarning: DfMUX board 123 has no valid housekeeping data in this entire observation!
+  % self.data['dfmux']['dfmux_id'][i_dfmux], RuntimeWarning)
+/home/ndhuang/spt_code/sptpol_software/data/readout.py:3755: RuntimeWarning: DfMUX board 124 has no valid housekeeping data in this entire observation!
+  % self.data['dfmux']['dfmux_id'][i_dfmux], RuntimeWarning)
+/home/ndhuang/spt_code/sptpol_software/data/readout.py:3755: RuntimeWarning: DfMUX board 125 has no valid housekeeping data in this entire observation!
+  % self.data['dfmux']['dfmux_id'][i_dfmux], RuntimeWarning)
+/home/ndhuang/spt_code/sptpol_software/data/readout.py:3755: RuntimeWarning: DfMUX board 126 has no valid housekeeping data in this entire observation!
+  % self.data['dfmux']['dfmux_id'][i_dfmux], RuntimeWarning)
+/home/ndhuang/spt_code/sptpol_software/data/readout.py:3755: RuntimeWarning: DfMUX board 127 has no valid housekeeping data in this entire observation!
+  % self.data['dfmux']['dfmux_id'][i_dfmux], RuntimeWarning)
+/home/ndhuang/spt_code/sptpol_software/data/readout.py:3755: RuntimeWarning: DfMUX board 128 has no valid housekeeping data in this entire observation!
+  % self.data['dfmux']['dfmux_id'][i_dfmux], RuntimeWarning)
+/home/ndhuang/spt_code/sptpol_software/data/readout.py:3755: RuntimeWarning: DfMUX board 129 has no valid housekeeping data in this entire observation!
+  % self.data['dfmux']['dfmux_id'][i_dfmux], RuntimeWarning)
+/home/ndhuang/spt_code/sptpol_software/data/readout.py:3755: RuntimeWarning: DfMUX board 130 has no valid housekeeping data in this entire observation!
+  % self.data['dfmux']['dfmux_id'][i_dfmux], RuntimeWarning)
+/home/ndhuang/spt_code/sptpol_software/data/readout.py:3755: RuntimeWarning: DfMUX board 131 has no valid housekeeping data in this entire observation!
+  % self.data['dfmux']['dfmux_id'][i_dfmux], RuntimeWarning)
+/home/ndhuang/spt_code/sptpol_software/data/readout.py:3755: RuntimeWarning: DfMUX board 132 has no valid housekeeping data in this entire observation!
+  % self.data['dfmux']['dfmux_id'][i_dfmux], RuntimeWarning)
+/home/ndhuang/spt_code/sptpol_software/data/readout.py:3755: RuntimeWarning: DfMUX board 133 has no valid housekeeping data in this entire observation!
+  % self.data['dfmux']['dfmux_id'][i_dfmux], RuntimeWarning)
+/home/ndhuang/spt_code/sptpol_software/data/readout.py:3755: RuntimeWarning: DfMUX board 134 has no valid housekeeping data in this entire observation!
+  % self.data['dfmux']['dfmux_id'][i_dfmux], RuntimeWarning)
+/home/ndhuang/spt_code/sptpol_software/data/readout.py:3755: RuntimeWarning: DfMUX board 135 has no valid housekeeping data in this entire observation!
+  % self.data['dfmux']['dfmux_id'][i_dfmux], RuntimeWarning)
+/home/ndhuang/spt_code/sptpol_software/data/readout.py:3755: RuntimeWarning: DfMUX board 136 has no valid housekeeping data in this entire observation!
+  % self.data['dfmux']['dfmux_id'][i_dfmux], RuntimeWarning)
+/home/ndhuang/spt_code/sptpol_software/data/readout.py:3755: RuntimeWarning: DfMUX board 137 has no valid housekeeping data in this entire observation!
+  % self.data['dfmux']['dfmux_id'][i_dfmux], RuntimeWarning)
+/home/ndhuang/spt_code/sptpol_software/data/readout.py:3755: RuntimeWarning: DfMUX board 138 has no valid housekeeping data in this entire observation!
+  % self.data['dfmux']['dfmux_id'][i_dfmux], RuntimeWarning)
+/home/ndhuang/spt_code/sptpol_software/data/readout.py:3755: RuntimeWarning: DfMUX board 139 has no valid housekeeping data in this entire observation!
+  % self.data['dfmux']['dfmux_id'][i_dfmux], RuntimeWarning)
+/home/ndhuang/spt_code/sptpol_software/data/readout.py:3755: RuntimeWarning: DfMUX board 140 has no valid housekeeping data in this entire observation!
+  % self.data['dfmux']['dfmux_id'][i_dfmux], RuntimeWarning)
+/home/ndhuang/spt_code/sptpol_software/data/readout.py:3755: RuntimeWarning: DfMUX board 141 has no valid housekeeping data in this entire observation!
+  % self.data['dfmux']['dfmux_id'][i_dfmux], RuntimeWarning)
+/home/ndhuang/spt_code/sptpol_software/data/readout.py:3755: RuntimeWarning: DfMUX board 142 has no valid housekeeping data in this entire observation!
+  % self.data['dfmux']['dfmux_id'][i_dfmux], RuntimeWarning)
+/home/ndhuang/spt_code/sptpol_software/data/readout.py:3755: RuntimeWarning: DfMUX board 143 has no valid housekeeping data in this entire observation!
+  % self.data['dfmux']['dfmux_id'][i_dfmux], RuntimeWarning)
+/home/ndhuang/spt_code/sptpol_software/data/readout.py:3755: RuntimeWarning: DfMUX board 144 has no valid housekeeping data in this entire observation!
+  % self.data['dfmux']['dfmux_id'][i_dfmux], RuntimeWarning)
+/home/ndhuang/spt_code/sptpol_software/data/readout.py:3755: RuntimeWarning: DfMUX board 145 has no valid housekeeping data in this entire observation!
+  % self.data['dfmux']['dfmux_id'][i_dfmux], RuntimeWarning)
+/home/ndhuang/spt_code/sptpol_software/data/readout.py:3755: RuntimeWarning: DfMUX board 146 has no valid housekeeping data in this entire observation!
+  % self.data['dfmux']['dfmux_id'][i_dfmux], RuntimeWarning)
+/home/ndhuang/spt_code/sptpol_software/data/readout.py:3755: RuntimeWarning: DfMUX board 147 has no valid housekeeping data in this entire observation!
+  % self.data['dfmux']['dfmux_id'][i_dfmux], RuntimeWarning)
+/home/ndhuang/spt_code/sptpol_software/data/readout.py:3755: RuntimeWarning: DfMUX board 148 has no valid housekeeping data in this entire observation!
+  % self.data['dfmux']['dfmux_id'][i_dfmux], RuntimeWarning)
+/home/ndhuang/spt_code/sptpol_software/data/readout.py:3755: RuntimeWarning: DfMUX board 149 has no valid housekeeping data in this entire observation!
+  % self.data['dfmux']['dfmux_id'][i_dfmux], RuntimeWarning)
+/home/ndhuang/spt_code/sptpol_software/data/readout.py:3755: RuntimeWarning: DfMUX board 150 has no valid housekeeping data in this entire observation!
+  % self.data['dfmux']['dfmux_id'][i_dfmux], RuntimeWarning)
+/home/ndhuang/spt_code/sptpol_software/data/readout.py:3755: RuntimeWarning: DfMUX board 151 has no valid housekeeping data in this entire observation!
+  % self.data['dfmux']['dfmux_id'][i_dfmux], RuntimeWarning)
+/home/ndhuang/spt_code/sptpol_software/data/readout.py:3755: RuntimeWarning: DfMUX board 152 has no valid housekeeping data in this entire observation!
+  % self.data['dfmux']['dfmux_id'][i_dfmux], RuntimeWarning)
+/home/ndhuang/spt_code/sptpol_software/data/readout.py:3755: RuntimeWarning: DfMUX board 153 has no valid housekeeping data in this entire observation!
+  % self.data['dfmux']['dfmux_id'][i_dfmux], RuntimeWarning)
+/home/ndhuang/spt_code/sptpol_software/data/readout.py:3755: RuntimeWarning: DfMUX board 154 has no valid housekeeping data in this entire observation!
+  % self.data['dfmux']['dfmux_id'][i_dfmux], RuntimeWarning)
+/home/ndhuang/spt_code/sptpol_software/data/readout.py:3755: RuntimeWarning: DfMUX board 155 has no valid housekeeping data in this entire observation!
+  % self.data['dfmux']['dfmux_id'][i_dfmux], RuntimeWarning)
+/home/ndhuang/spt_code/sptpol_software/data/readout.py:3755: RuntimeWarning: DfMUX board 156 has no valid housekeeping data in this entire observation!
+  % self.data['dfmux']['dfmux_id'][i_dfmux], RuntimeWarning)
+/home/ndhuang/spt_code/sptpol_software/data/readout.py:3794: RuntimeWarning: 37 of 37 DfMUX boards have no valid HK data during this observation. (This is probably fine.)
+
+  % (len(boards_with_no_valid_hk_data), n_dfmux), RuntimeWarning)
+/home/ndhuang/spt_code/sptpol_software/data/readout.py:2900: RuntimeWarning: I don't yet know when this fridge cycle ended! I will guess 4 hours longer than the median to-date.
+  warnings.warn("I don't yet know when this fridge cycle ended! I will guess 4 hours longer than the median to-date.", RuntimeWarning)
+/home/ndhuang/spt_code/sptpol_software/data/readout.py:2916: RuntimeWarning: This observation time isn't contained in the fridge cycle time -- the cycle list may not be updating.
+  warnings.warn("This observation time isn't contained in the fridge cycle time -- the cycle list may not be updating.", RuntimeWarning)
+not projecting iq False False
+/home/ndhuang/spt_code/sptpol_software/data/readout.py:3137: RuntimeWarning: No half-scans found!  Treating the entire file as one scan!
+  warnings.warn('No half-scans found!  Treating the entire file as one scan!', RuntimeWarning)
+Reading SPTpol data from the period 04-May-2014:14:48:22 to 04-May-2014:14:51:32.
+Reading...0%Reading...1%Reading...1%Reading...2%Reading...2%Reading...3%Reading...3%Reading...4%Reading...4%Reading...5%Reading...10%Reading...20%Reading...30%Reading...40%Reading...50%Reading...60%Reading...70%Reading...80%Reading...90%Reading...100%
+Elapsed seconds: 6.35659
+Arcfile reading complete. Execution time:  10.11 seconds.
+not projecting iq False False
+Reading SPTpol data from the period 04-May-2014:15:41:41 to 04-May-2014:15:44:51.
+Reading...0%Reading...1%Reading...1%Reading...2%Reading...2%Reading...3%Reading...3%Reading...4%Reading...4%Reading...5%Reading...10%Reading...20%Reading...30%Reading...40%Reading...50%Reading...60%Reading...70%Reading...80%Reading...90%Reading...100%
+Elapsed seconds: 6.44852
+Arcfile reading complete. Execution time:  10.18 seconds.
+not projecting iq False False
+Reading SPTpol data from the period 04-May-2014:16:31:44 to 04-May-2014:16:34:55.
+Reading...0%Reading...1%Reading...1%Reading...2%Reading...2%Reading...3%Reading...3%Reading...4%Reading...4%Reading...5%Reading...10%Reading...20%Reading...30%Reading...40%Reading...50%Reading...60%Reading...70%Reading...80%Reading...90%Reading...99%Reading...100%
+Elapsed seconds: 6.40508
+Arcfile reading complete. Execution time:  10.17 seconds.
+not projecting iq False False
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mAttributeError[0m                            Traceback (most recent call last)
+[1;32m/home/ndhuang/code/scan_maker/elParamChanges.py[0m in [0;36m<module>[1;34m()[0m
+[0;32m    119[0m         pos_fig.savefig(os.path.join(plot_dir, '%s_pos.%s' %(scan, plot_fmt)),
+[0;32m    120[0m                         dpi = 300)
+[1;32m--> 121[1;33m         [0mpos_fig[0m[1;33m.[0m[0mclose[0m[1;33m([0m[1;33m)[0m[1;33m[0m[0m
+[0m[0;32m    122[0m [1;33m[0m[0m
+[0;32m    123[0m         [0mpl[0m[1;33m.[0m[0mclose[0m[1;33m([0m[1;34m'all'[0m[1;33m)[0m[1;33m[0m[0m
+
+[1;31mAttributeError[0m: 'Figure' object has no attribute 'close'

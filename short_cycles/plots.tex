@@ -1,0 +1,47 @@
+\documentclass{article}
+\usepackage[margin=.5in]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\graphicspath{{/home/ndhuang/plots/short_cycles/}}
+\newcommand{\figtitle}[1]{
+  {
+    \centering
+    \large\textbf{#1}
+    \par\medskip
+  }
+}
+
+\begin{document}
+\begin{figure}
+    \centering
+    \includegraphics[height=.4\textheight]{4k_head.png}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[height=.4\textheight]{4k_shield.png}
+\end{figure}
+\clearpage
+\begin{figure}
+    \centering
+    \includegraphics[height=.4\textheight]{cabin_temp.png}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[height=.4\textheight]{he4_hold.png}
+\end{figure}
+\clearpage
+\begin{figure}
+    \centering
+    \includegraphics[height=.4\textheight]{hex_med.png}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[height=.4\textheight]{ic_head.png}
+\end{figure}
+\clearpage
+\begin{figure}
+    \centering
+    \includegraphics[height=.4\textheight]{uc_head.png}
+\end{figure}
+\end{document}
