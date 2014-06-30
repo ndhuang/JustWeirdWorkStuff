@@ -1,0 +1,35 @@
+version .1 2013-10-22
+This document is intended as a getting started guide for using the SPT analysis pipeline to find clusters in the SPTpol maps.  However, it might be useful for anyone who wants to use the SPTpol maps in idl.  I'm going to briefly talk about the tasks that are handled by sptpol_software, but I won't go into details.
+
+To begin with, we created IDFs.  To see the parameters we used, take a look at sptpol_software/autotools/autoprocessing_scripts/idf_ra23h30dec-55-clusters.py.  The only difference between these idfs and the "standard" idfs is the lack of notch filtering.  As of October 2013, we do not have the new and improved notch filter working, but we're making progress.  See https://pole.uchicago.edu/sptpol/index.php/Notch_Filter_Ringing for a quick look at the problem and the proposed solution.
+
+Moving on, the next step is to make maps from the idfs.  For the 23:30 field, we used the C mapmaking code.  For your sanity and others, use the python wrapper.  The map making parameters are on the wiki (https://pole.uchicago.edu/sptpol/index.php/Map_Making_Settings#Cluster_Finding_Maps).  The current cluster list (Oct. 22, 2013) was produced using the 20130919 maps.
+
+With the maps in hand, we calculated statistics on them in order to cut out the bad maps.  For each map, we calculate (and store on disk!) the map rms, median weight and total weight.  Before taking the rms, the maps were smoothed to 1 arcmin.  We then cut any maps that has one or more of (rms, median weight, total weight) farther than 2 standard deviations from the median.
+
+Once we had good maps, we bundled them.  This step is not necessary for cluster finding, but it has the potential to save you a lot of time on disk IO.  We made 100 bunldes each for the 90s and 150s,  Each bundle was composed of floor(n_maps / 100).  Excess maps were simply unused.  The bundles were created randomly (quite literally- each bundle had 100 maps randomly selected from the remaining maps).  We also store a list of the component maps alongside each bundle.  So far this hasn't been useful, but you might imagine a situation where it could help to find a few very bad maps that somehow made it past the cuts.  This is the point where I decided to pad my maps to a nice factor of 2 (4096x4096).  There are certain advantages to doing this now.  In particular, it means you don't need to pad any of the data products created later, and you only have to handle the padding in code once.
+
+At this point, everything was done in IDL.  In the steps above, I switched back and forth between idl and python (not recommended).
+
+Generate a mask.  This requires a coadd of the weights.  It's unecessary, but you can also make a full coadd of the maps.  It makes a pretty picture to look at (and is a good sanity check).  Create the mask using spt_analysis/mapping/create_apodization_masks.pro.  If you haven't padded yet, you'll need to pad the mask later.
+
+Generate the noise psd  This is done using spt_analysis/sources/estimate_2d_psd_from_maps_multifield.pro.  This is where you need your padding.
+
+Make a clusterlist!  The script I used to make this is /home/ndhuang/code/clusterFinding/make_clusterlist_catalog_sptpol.pro.  It contains a few parameters that are SPTpol specific:
+radec0 = [352.515,-55] SPTpol deep field center
+szbands = [91.2, 146.0] 2012 band centers (you'll want to use the 2013 centers)
+beams: I haven't worked out how to use SPTpol beams in the clusterfinding code yet.  In any case, I don't think there's an official 2013 beam profile yet.
+
+Sanity checks:
+Match the clusters you find against the ones found by SPTsz.  You need to look in the cluster database on spt for all the candidates in your field.  We have been calling anythign within 2 arcmin a match.  This seems like a pretty good number (there's a large gap from ~1.5 arcmin to 6 or 7).  I wrote code to do this in /home/ndhuang/code/clusterFinder/matches.txt.  Read at your own risk (it's mostly uncommented, and was never meant to be seen by other humans).
+
+Once you have the list of matches, you can do things like compare their significance.
+
+Reading in SPTpol hdf5 files:
+There's a framework for doing this in /home/ndhuang/code/clusterFinding/hdf5.  It works, but has an extremely small memory leak (I only noticed it after reading in thousands of maps).  Anyhow, there's a workaround: if you read in a map using
+map = hdf5_to_struct(mapfiles[i])
+just run
+heap_free, map
+map = 0
+when you're done with it.  I do intend to spend more time working on this code.  Once it's in a nice state, I'll put it into the spt_analysis repository.
+
