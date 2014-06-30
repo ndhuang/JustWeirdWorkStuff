@@ -1,7 +1,4 @@
 *.py[cod]
-*.pkl
-*.np[yz]
-*.png
 
 # C extensions
 *.so
@@ -39,3 +36,12 @@ nosetests.xml
 
 # emacs backups
 *~
+
+# data and image files
+*.sav
+*.fits
+*.pkl
+*.np[yz]
+*.eps
+*.png
+*.pdf
