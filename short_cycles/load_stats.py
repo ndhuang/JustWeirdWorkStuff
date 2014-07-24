@@ -8,16 +8,19 @@ from sptpol_software.util.time import SptDatetime
 def grabKey(stats, key, get_time = False):
     if get_time:
         time = [[] for i in stats]
-    y = np.zeros(len(stats.keys()))
-    for i, cycle_start in enumerate(stats):
+    min = np.zeros(len(stats.keys()))
+    med = np.zeros(len(stats.keys()))
+    max = np.zeros(len(stats.keys()))
+    for i, cycle_start in enumerate(sorted(stats.keys())):
         if get_time:
             time[i] = SptDatetime(cycle_start)
-        y[i] = stats[cycle_start][key]
+        min[i], med[i], max[i] = stats[cycle_start][key]
             
     if get_time:
-        return time, y
+        time = array(time)
+        return time, min, med, max
     else:
-        return y
+        return min, med, max
 
 def plotKey(stats, key, hold_time = None, bad_time = 30.0, ridiculous_time = 29.0):
     if hold_time is None:
@@ -56,13 +59,14 @@ def plotKey(stats, key, hold_time = None, bad_time = 30.0, ridiculous_time = 29.
                %(key.replace(' ', '_')))
     # pl.show()
 
-stats_file = '/home/ndhuang/code/short_cycles/fixed_stats.pkl'
+stats_file = '/home/ndhuang/code/short_cycles/cycle_stats_minmax.pkl'
 f = open(stats_file, 'r')
 stats = pickle.load(f)
 f.close()
-hold_time = grabKey(stats, 'hold time')
+# hold_time = grabKey(stats, 'hold time')
 # keys = stats[stats.keys()[0]].keys()
 # keys.remove('hold time')
+# keys = ['cabin temp', 'jack 1']
 # for k in keys:
 #     plotKey(stats, k, hold_time = hold_time)
 

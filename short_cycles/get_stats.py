@@ -62,21 +62,29 @@ def grabData(data, regs):
         if isinstance(regs, str):
             key = regs
             med_val = np.median(data[regs])
-            out.update({key: med_val})
+            max_val = np.max(data[regs])
+            min_val = np.min(data[regs])
+            out.update({key: [min_val, med_val, max_val]})
         elif isinstance(regs[0], int):
             key = regs[1]
             med_val = np.median(data[regs[0]])
-            out.update({key: med_val})
+            max_val = np.max(data[regs[0]])
+            min_val = np.min(data[regs[0]])
+            out.update({key: [min_val, med_val, max_val]})
         else:
             for r in regs:
                 if isinstance(r, str):
                     key = r
                     med_val = np.median(data[r])
-                    out.update({key: med_val})
+                    max_val = np.max(data[r])
+                    min_val = np.min(data[r])
+                    out.update({key: [min_val, med_val, max_val]})
                 elif isinstance(r[0], int):
                     key = r[1]
                     med_val = np.median(data[r[0]])
-                    out.update({key: med_val})
+                    max_val = np.max(data[r[0]])
+                    min_val = np.min(data[r[0]])
+                    out.update({key: [min_val, med_val, max_val]})
                 else:
                     raise RuntimeError("How did I get here?! %s" %str(r))
         return out
@@ -95,13 +103,15 @@ if __name__ == '__main__':
                                               (14, '50K shield'), 
                                               (15, '50K head')],
                                           1: (4, 'secondary')}},
-                   'antenna': {'scu_temp': (20, 'cabin temp'),
+                   'antenna': {'scu_temp': [(20, 'cabin temp'),
+                                            (21, 'jack 1')],
                                'track_actual': (0, 'Azimuth')}}
-    OUTFILE = 'cycle_stats.pkl'
+    OUTFILE = 'cycle_stats_minmax.pkl'
     out_dict = {}
     borked_file = open('borked_reads.txt', 'w')
     # grab the relevant cycles
-    cycle_dirs = glob.glob('/home/sptdat/public_html/data_quality/fridge_cycles/201404*') + glob.glob('/home/sptdat/public_html/data_quality/fridge_cycles/201405*')
+    # cycle_dirs = glob.glob('/home/sptdat/public_html/data_quality/fridge_cycles/201404*') + glob.glob('/home/sptdat/public_html/data_quality/fridge_cycles/201405*')
+    cycle_dirs = glob.glob('/home/sptdat/public_html/data_quality/fridge_cycles/20140[6-7]*')
     cycles = [os.path.basename(cd) for cd in cycle_dirs]
     cycles = sorted(cycles)
     # hold_keys = ['ic_head', 'uc_head', '4k_shield', '4k_head']

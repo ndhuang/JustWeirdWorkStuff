@@ -1,5 +1,4 @@
-pro make_clusterlist_catalog_sptpol, field, coadd_dir, ptsrcfile, radec0, forceaz=forceaz,forcesingle=forcesingle,stopit=stopit
-;; field='ra23h30dec-55'
+pro make_clusterlist_catalog_sptpol, coadd_dir, field, radec0, ptsrcfile, forceaz=forceaz,forcesingle=forcesingle,stopit=stopit
 szbands = [91.2, 146.0] ; 2012 band centers
 
 ;; coadd_dir='/data39/ndhuang/clusters/ra23h30dec-55/run2/bundles2/'
@@ -19,8 +18,8 @@ profilefile='/home/ndhuang/code/clusterFinding/profiles/profiles_12_beta1_rc025_
 
 noise1sig=[1e9,1e9,1e9] ; expect ignored
 outputdir = coadd_dir + '/cluster_out/new/'
-savefile = outputdir+'clusters_3-sigma'+field+'.sav'
-savefileall = outputdir+'clusters_allinfo_3-sigma'+field+'.sav'
+savefile = outputdir+'clusters_3-sigma.sav'
+savefileall = outputdir+'clusters_allinfo_3-sigma.sav'
 ;; if keyword_set(forcesingle) then begin
 ;;    savefile = outputdir+'clusters_150_'+field+'.sav'
 ;;    savefileall = outputdir+'clusters_150_allinfo_'+field+'.sav'

@@ -1,4 +1,4 @@
-pro weight_coadd, runlist, output_dir, freq
+pro weight_coadd, output_dir, runlist, freq
 ;; get shit from the runlist
 openr,lun,runlist,/get_lun
 line =''
@@ -27,12 +27,11 @@ for i=0,nset-1 do for j=startind[i],endind[i] do $
     print,'Missing read permission for file '+filenames[j]
 endif
 ;; done with fucking runlist bullshit
-
-sfreq = strtrim(string(freq, format = '(I03)'))
-coadd_fits_file = output_dir + '/coadd.fits'
+freq_name = strtrim(string(freq, format = "(I03)"), 2)
+coadd_fits_file = output_dir + '/' + freq_name + '_coadd.fits'
 coadd_save_file = output_dir + '/coadd.sav'
 ;; map_dir = input_dir + "/*" + sfreq + "ghz.h5"
-mask_output_file = output_dir + '/' + sfreq + 'ghz_mask.fits'
+mask_output_file = output_dir + '/' + freq_name + '_mask.fits'
 ;; map_files = file_search(map_dir)
 map_files = filenames
 weight = dblarr(8192, 8192)
@@ -70,5 +69,5 @@ else maps = dblarr(8192, 8192, 2)
 if freq eq 90 then maps[*, *, 0] = coadd $
 else maps[*, *, 1] = coadd
 save, maps, filename = coadd_save_file
-CREATE_APODIZATION_MASKS, weight, mask_output_file, threshold=.8
+;; CREATE_APODIZATION_MASKS, weight, mask_output_file, threshold=.8
 end
