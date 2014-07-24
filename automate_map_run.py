@@ -2,7 +2,8 @@ import string, os, shutil, pickle, sys, glob
 
 
 output_tag = 'clustermap_'
-output_dir = '/mnt/rbfa/ndhuang/maps/clusters/ra3hdec-25/'
+# output_dir = '/mnt/rbfa/ndhuang/maps/clusters/ra3hdec-25/'
+output_dir = '/data53/ndhuang/ra23h30dec-55/'
 map_subdir = 'maps'
 script_name = os.path.join(output_dir, 'cluster_map_script.sh')
 
