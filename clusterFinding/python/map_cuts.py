@@ -23,12 +23,14 @@ def getStats(map, w_thresh = .3, rem_weight = False):
                               map.Map.weight_map[not_zero])
     smooth_w = filters.uniform_filter(map.Map.weight_map, size = 4)
     smooth_T = filters.uniform_filter(map.Map.real_map_T, size = 4)
-    good = np.where(map.Map.weight_map > w_thresh)
+    if len(np.shape(map.Map.weight_map) > 2):
+        good = np.where(map.Map.weight_map[:,:, 0, 0] > w_thresh)
+    else:
+        good = np.where(map.Map.weight_map > w_thresh)
     # if np.shape(good)[1] == 0:
     #     # no good indices...
     #     raise ValueError('%s has no weights greater than %d!'
     #                      %(map.from_filename, w_thresh)) 
-
     med_w = np.median(map.Map.weight_map[good])
     tot_w = np.sum(map.Map.weight_map[good])
     rms = np.sqrt(np.sum(smooth_T[good]**2))
@@ -116,8 +118,9 @@ if __name__ == '__main__':
                 map = files.read(mf)
                 try:
                     stats.update(getStats(map))
-                except ValueError, err:
+                except Exception, err:
                     print err
+                # stats.update(getStats(map))
             f = open(os.path.join(args.output_dir, 
                                   'map_stats_' + band + '.pkl'), 'w')
             pickle.dump(stats, f)
