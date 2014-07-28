@@ -23,7 +23,7 @@ def getStats(map, w_thresh = .3, rem_weight = False):
                               map.Map.weight_map[not_zero])
     smooth_w = filters.uniform_filter(map.Map.weight_map, size = 4)
     smooth_T = filters.uniform_filter(map.Map.real_map_T, size = 4)
-    if len(np.shape(map.Map.weight_map) > 2):
+    if len(np.shape(map.Map.weight_map)) > 2:
         good = np.where(map.Map.weight_map[:,:, 0, 0] > w_thresh)
     else:
         good = np.where(map.Map.weight_map > w_thresh)
@@ -115,7 +115,10 @@ if __name__ == '__main__':
             map_files = glob.glob(os.path.join(args.map_dir, 
                                                '*' + band + '.h5'))
             for mf in map_files:
-                map = files.read(mf)
+                try:
+                    map = files.read(mf)
+                except IOError:
+                    continue
                 try:
                     stats.update(getStats(map))
                 except Exception, err:
