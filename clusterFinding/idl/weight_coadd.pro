@@ -42,8 +42,8 @@ coadd = dblarr(8192, 8192)
 for i = startind[0], endind[0] - 1 do begin
    print, map_files[i]
    map = read_spt_hdf5(map_files[i], /c_map)
-   coadd += map.Map.real_map_T * map.Map.weight_map
-   weight += map.Map.weight_map[*, *, 0, 0]
+   coadd += map.map.map * map.weight.weight
+   weight += map.weight.weight[*, *, 0, 0]
    ;; print, map_files[i]
    ;; good=where(weight ne 0, count)
    ;; if count eq 0 then print, stddev(coadd  * mask.masks.apod_mask / weight) $
