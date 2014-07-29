@@ -43,7 +43,7 @@ for i = startind[0], endind[0] - 1 do begin
    print, map_files[i]
    map = hdf5_to_struct(map_files[i])
    coadd += map.Map.real_map_T * map.Map.weight_map
-   weight += map.Map.weight_map
+   weight += map.Map.weight_map[*, *, 0, 0]
    ;; print, map_files[i]
    ;; good=where(weight ne 0, count)
    ;; if count eq 0 then print, stddev(coadd  * mask.masks.apod_mask / weight) $
@@ -55,7 +55,8 @@ if n_elements(good) lt 1 then begin
    print, 'Borked!!!!' 
    stop
 endif
-
+print, good
+print, n_elements(weight)
 coadd[good] /= weight[good]
 
 coadd_struct = {map: coadd, weight: weight, files: map_files}
