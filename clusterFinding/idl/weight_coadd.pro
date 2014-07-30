@@ -27,7 +27,7 @@ for i=0,nset-1 do for j=startind[i],endind[i] do $
     print,'Missing read permission for file '+filenames[j]
 endif
 ;; done with fucking runlist bullshit
-freq_name = strtrim(string(freq, format = "(I03)"), 2)
+freq_name = strtrim(string(freq, format = "(I03)"), 2) + 'ghz'
 coadd_fits_file = output_dir + '/' + freq_name + '_coadd.fits'
 coadd_save_file = output_dir + '/coadd.sav'
 ;; map_dir = input_dir + "/*" + sfreq + "ghz.h5"
@@ -55,8 +55,7 @@ if n_elements(good) lt 1 then begin
    print, 'Borked!!!!' 
    stop
 endif
-print, good
-print, n_elements(weight)
+
 coadd[good] /= weight[good]
 
 coadd_struct = {map: coadd, weight: weight, files: map_files}
@@ -70,5 +69,5 @@ else maps = dblarr(8192, 8192, 2)
 if freq eq 90 then maps[*, *, 0] = coadd $
 else maps[*, *, 1] = coadd
 save, maps, filename = coadd_save_file
-;; CREATE_APODIZATION_MASKS, weight, mask_output_file, threshold=.8
+CREATE_APODIZATION_MASKS, weight, mask_output_file, threshold=.8
 end
