@@ -56,7 +56,7 @@ echo "\\hline" >> $main_tex
 if [[ $field == 'ra23h30dec-55' ]]; then
     ptsrcfile=$SPTPOL_SOFTWARE/config_files/ptsrc_config_5mJy_ra23h30dec-55_20140129_150ghz_withFlux.txt
 else
-    ptsrcfile=$SPTPOL_SOFTWARE/config_files/ptsrc_config_5mJy_{$field}_test.txt
+    ptsrcfile=$SPTPOL_SOFTWARE/config_files/ptsrc_config_{$field}_for_ndh.txt
 fi
 checkCall idl $idl -args $field_dir $field $ra0 $dec0 $ptsrcfile $main_tex
 echo "\\hline" >> $main_tex

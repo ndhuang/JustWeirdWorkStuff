@@ -1,3 +1,4 @@
+
 args = command_line_args()
 field_dir = args[0]
 field = args[1]
@@ -28,5 +29,5 @@ make_psd, field_dir, freqs[i], /usemem
 noise_uk, field_dir, freqs[i], texfile=main_tex
 
 make_clusterlist_catalog_sptpol, field_dir, field, radec0, ptsrcfile
-cluster_list_summary, field_dir + 'cluster_out/new/clusters_3-sigma.sav', texsummary, textsummary, radec0, npix, field
+cluster_list_summary, field_dir + '/cluster_out/new/clusters_3-sigma.sav', texsummary, textsummary, radec0, npix, field
 exit

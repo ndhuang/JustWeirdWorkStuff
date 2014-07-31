@@ -10,23 +10,35 @@ import numpy as np
 import sptpol_software.util.files as files
 from sptpol_software.observation.sky import ang2Pix, pix2Ang
 from sptpol_software.scratch.ndhuang.useful_stuff import masks
+from field_centers import centers
 
 class clusterCircler(object):
-    def __init__(self, field, clusterdir = '/mnt/rbfa/ndhuang/maps/clusters', 
-                 v = 1e-3, maskfile = None):
+    def __init__(self, field, band, 
+                 clusterdir = '/mnt/rbfa/ndhuang/maps/clusters', 
+                 v = 1e-3, maskfile = None, radec0 = None):
         self.proj = 0
         self.reso = .25
 
         # parse field center from field name
-        match = re.match('ra(\d+)h(\d*)dec([0-9\-]+)', field)
-        ra = 15 * float(match.group(1))
-        if len(match.group(2)) > 0:
-            ra += float(match.group(2)) / 60 * 15
-        dec = float(match.group(3))
-        self.radec0 = [ra, dec]
+        if radec0 is not None:
+            self.radec0 = radec0
+        elif field in centers.keys():
+            self.radec0 = centers[field]
+        else:
+            match = re.match('ra(\d+)h(\d*)dec([0-9\-]+)', field)
+            ra = 15 * float(match.group(1))
+            if len(match.group(2)) > 0:
+                ra += float(match.group(2)) / 60 * 15
+            dec = float(match.group(3))
+            self.radec0 = [ra, dec]
 
         # grab the coadd and expand it
-        coadd = files.read(os.path.join(clusterdir, field, 'coadd.fits'))
+        try:
+            coadd = files.read(os.path.join(clusterdir, field, 
+                                            '%03d_coadd.fits' %band))
+        except IOError:
+            coadd = files.read(os.path.join(clusterdir, field, 
+                                            '%03dghz_coadd.fits' %band))
         self.map = coadd.coadd.map
         self.map_shape = np.shape(self.map)
         # print self.map_shape
@@ -60,7 +72,7 @@ class clusterCircler(object):
             mask = masks.srcMaskFromfile(maskfile, self.reso, self.map_shape,
                                       self.proj, self.radec0)
             pl.contour(mask, levels = [.9], colors = 'yellow', linewidth = .15)
-        pl.savefig(os.path.join('/home/ndhuang/plots/clusters/ps_test/', 
+        pl.savefig(os.path.join('/home/ndhuang/plots/clusters/', 
                                 field + '_map.png'), 
                    bbox_inches = 'tight', pad_inches = 0,
                    dpi = 1000)
@@ -109,9 +121,15 @@ class clusterCircler(object):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('field', type = str)
-    parser.add_argument('--mask', type = str, default = None)
+    parser.add_argument('--ptsrc', type = str, default = None)
+    parser.add_argument('--band', type = int, default = None)
     args = parser.parse_args()
-    c = clusterCircler(args.field, maskfile = args.mask, clusterdir = '/mnt/rbfa/ndhuang/maps/clusters/run1_bad_ps')
+    if args.band is None:
+        args.band = [90, 150]
+    else:
+        args.band = [args.band]
+    for b in args.band:
+        c = clusterCircler(args.field, b, clusterdir = '/mnt/rbfa/ndhuang/maps/clusters/run1_bad_ps/', maskfile = args.ptsrc)
     # fig = c.getFig()
     # pl.imshow(c.contour, interpolation = 'None', cmap = cm.gray)
     # pl.show()
