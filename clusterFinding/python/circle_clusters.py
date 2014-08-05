@@ -13,7 +13,7 @@ from sptpol_software.scratch.ndhuang.useful_stuff import masks
 from field_centers import centers
 
 class clusterCircler(object):
-    def __init__(self, field, band, 
+    def __init__(self, field, band, plotname,
                  clusterdir = '/mnt/rbfa/ndhuang/maps/clusters', 
                  v = 1e-3, maskfile = None, radec0 = None):
         self.proj = 0
@@ -73,7 +73,7 @@ class clusterCircler(object):
                                       self.proj, self.radec0)
             pl.contour(mask, levels = [.9], colors = 'yellow', linewidth = .15)
         pl.savefig(os.path.join('/home/ndhuang/plots/clusters/', 
-                                field + '_map.png'), 
+                                plotname + '.png'),
                    bbox_inches = 'tight', pad_inches = 0,
                    dpi = 1000)
         print i
@@ -123,13 +123,18 @@ if __name__ == '__main__':
     parser.add_argument('field', type = str)
     parser.add_argument('--ptsrc', type = str, default = None)
     parser.add_argument('--band', type = int, default = None)
+    parser.add_argument('--plotname', type = str, default = None)
     args = parser.parse_args()
     if args.band is None:
         args.band = [90, 150]
     else:
         args.band = [args.band]
+    if args.plotname is None:
+        args.plotname = args.field + '_map'
+    if args.plotname.endswith('.png'):
+        args.plotname = args.plotname[:-4]
     for b in args.band:
-        c = clusterCircler(args.field, b, clusterdir = '/mnt/rbfa/ndhuang/maps/clusters/run1_bad_ps/', maskfile = args.ptsrc)
+        c = clusterCircler(args.field, b, args.plotname, clusterdir = '/mnt/rbfa/ndhuang/maps/clusters/', maskfile = args.ptsrc)
     # fig = c.getFig()
     # pl.imshow(c.contour, interpolation = 'None', cmap = cm.gray)
     # pl.show()
