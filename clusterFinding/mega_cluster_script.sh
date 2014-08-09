@@ -67,5 +67,5 @@ echo "\\end{document}" >> $main_tex
 
 start_dir=`pwd`
 cd $cluster_dir
-pdflatex $main_tex
+pdflatex $main_tex > /dev/null
 cd $start_dir
