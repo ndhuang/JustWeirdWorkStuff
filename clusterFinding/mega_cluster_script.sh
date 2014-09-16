@@ -14,6 +14,7 @@ function checkCall {
 map_cuts=/home/ndhuang/code/clusterFinding/python/map_cuts.py
 idl=/home/ndhuang/code/clusterFinding/idl/cluster_find_field.pro
 plot_psd=/home/ndhuang/code/clusterFinding/python/plot_psd.py
+ds9=/home/ndhuang/code/clusterFinding/python/make_DS9.py
 tex_template=/home/ndhuang/code/clusterFinding/field_clusters.tex
 
 # assume we have maps
@@ -56,7 +57,7 @@ echo "\\hline" >> $main_tex
 if [[ $field == 'ra23h30dec-55' ]]; then
     ptsrcfile=$SPTPOL_SOFTWARE/config_files/ptsrc_config_5mJy_ra23h30dec-55_20140129_150ghz_withFlux.txt
 else
-    ptsrcfile=$SPTPOL_SOFTWARE/config_files/ptsrc_config_{$field}_for_ndh.txt
+    ptsrcfile=$SPTPOL_SOFTWARE/config_files/ptsrc_config_{$field}_combined.txt
 fi
 checkCall idl $idl -args $field_dir $field $ra0 $dec0 $ptsrcfile $main_tex
 echo "\\hline" >> $main_tex
@@ -69,3 +70,5 @@ start_dir=`pwd`
 cd $cluster_dir
 pdflatex $main_tex > /dev/null
 cd $start_dir
+
+python2.7 $ds9 $field --ptsrc $ptsrcfile 
