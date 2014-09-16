@@ -37,7 +37,8 @@ def paralellCoadd(mapfiles, mapinds, output_dir, band,
         i = 1
         while len(mapinds) / (10**i) > 1:
             i += 1
-        name_patt = "bundle_{:0{ndigits}d}_{band:03d}.h5".format(ndigits = i, band = band)
+        i += 1
+        name_patt = "bundle_{{:0{ndigits}d}}_{band:03d}.h5".format(ndigits = i, band = band)
         names = [name_patt.format(i) for i in range(len(mapinds))]
     if nprocs == 1:
         for i, name in enumerate(names):
