@@ -82,11 +82,14 @@ def randomBundles(args, pad_to = None):
     mapfiles = readRunlist(args.runlist)
     nmaps = len(mapfiles) / args.num_bundles
     available_inds = range(len(mapfiles))
-    map_inds = np.zeros((args.num_bundles, n_maps), dtype = int)
-    for i in range(args.num_bundles):
-        for j in range(n_maps):
-            ind = np.random.randint(0, len(available_inds))
-            map_inds[i, j] = available_inds.pop(ind)
+    map_inds = [[] for i in range(args.num_bundles)]
+    bundle = 0
+    while len(available_inds) > 0:
+        bundle = bundle % len(map_inds)
+        ind = np.random.randint(0, len(available_inds))
+        map_inds[bundle].append(available_inds.pop(ind))
+        bundle += 1
+    map_inds = np.asarray(map_inds)
     paralellCoadd(mapfiles, map_inds, args.outdir, args.band, nprocs = args.procs, pad_to = pad_to)
 
 def azimuthBundles(args, pad_to = None):
