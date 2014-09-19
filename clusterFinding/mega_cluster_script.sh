@@ -46,7 +46,7 @@ main_tex=$cluster_dir/${field}_clusters.tex
 cp $tex_template $main_tex
 
 # first, get statistics and do map cuts
-checkCall python2.7 $map_cuts $field_dir/maps -o $field_dir --tex-file=$main_tex
+# checkCall python2.7 $map_cuts $field_dir/maps -o $field_dir --tex-file=$main_tex
 
 # now, run the idl crap
 echo "\\subsection{Noise per Band}" >> $main_tex
