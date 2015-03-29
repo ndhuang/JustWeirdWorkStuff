@@ -51,6 +51,14 @@ class PtsrcList(object):
                 mindist = dist
             i += 1
         return closest, mindist
+    
+    def toDS9(self, filename):
+        f = open(filename, 'w')
+        f.write('index\tra\tdec\ttype\n')
+        for i, (ra, dec) in enumerate(zip(self.ra, self.dec)):
+            f.write('{index}\t{ra}\t{dec}\tptsrc\n'.format(index = i, ra = ra, 
+                                                    dec = dec))
+        f.close()
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
