@@ -37,6 +37,7 @@ function group_to_struct, file_id, groupname, objname
      tagname = strjoin(spl, '_')
      spl = strsplit(tagname, '#', /extract)
      tagname = strjoin(spl, '')
+     if tagname eq '1' then return, 1
      if i eq 0 then begin
         output_struct = create_struct(tagname, group_to_struct(file_id, groupname + '/' + objname, subgroup))
      endif else begin

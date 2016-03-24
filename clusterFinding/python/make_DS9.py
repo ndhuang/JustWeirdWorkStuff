@@ -1,8 +1,9 @@
 import os
 import argparse
+import numpy as np
 from sptpol_software.util import idl, files
 from sptpol_software.scratch.ndhuang.useful_stuff import masks
-from catalog import Catalog
+from sptpol_software.scratch.ndhuang.catalog import Catalog
 from field_centers import centers
 
 def makeDS9ForBand(output_dir, band, map, center, reso, proj, mask = None):
@@ -18,32 +19,33 @@ def makeDS9ForBand(output_dir, band, map, center, reso, proj, mask = None):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser('Take the cluster results and make outputs usable with DS9')
-    parser.add_argument('field', type = str, help = "The CMB field")
-    parser.add_argument('--band', type = int, default = None,
-                        help = 'Frequency band')
+    # parser.add_argument('field', type = str, help = "The CMB field")
+    parser.add_argument('clusters')
+    parser.add_argument('coadd')
+    # parser.add_argument('--band', type = int, default = None,
+    #                     help = 'Frequency band')
     parser.add_argument('--cluster-dir', type = str, 
                         default = '/mnt/rbfa/ndhuang/maps/clusters',
                         help = 'The directory containing the fields')
     parser.add_argument('--ptsrc', type = str, default = None,
                         help = 'The ptsrc config file')
-    parser.add_argument('--output', type = str, default = None,
+    parser.add_argument('output', type = str,
                         help = 'The output directory')
+    parser.add_argument('field')
     args = parser.parse_args()
-    if not os.path.exists(args.cluster_dir):
-        raise IOError("Directory {} does not exist!".format(args.cluster_dir))
-    if args.band is None:
-        args.band = [150, 90]
-    else:
-        args.band = [args.band]
+    # if not os.path.exists(args.cluster_dir):
+    #     raise IOError("Directory {} does not exist!".format(args.cluster_dir))
+    # if args.band is None:
+    #     args.band = [150, 90]
+    # else:
+    #     args.band = [args.band]
     if args.output is None:
         args.output = os.path.join(args.cluster_dir, args.field, 'ds9')
     if not os.path.exists(args.output):
         os.makedirs(args.output)
 
     # make source lists
-    cl = Catalog.fromFilename(os.path.join(args.cluster_dir, args.field, 
-                                           'cluster_out', 'new', 
-                                          args. field + '_3sigma_clusters.txt'))
+    cl = Catalog.fromFilename(args.clusters, usecols = [1, 2, 3])
     cl.type = 'cluster'
     cl.toDS9(os.path.join(args.output, 'clusters.tsv'))
     if args.ptsrc is not None:
@@ -52,21 +54,17 @@ if __name__ == '__main__':
         pl.toDS9(os.path.join(args.output, 'ptsrc.tsv'))
 
     # map stuff
-    for band in args.band:
-        band_name = "{:03d}ghz".format(band)
-        map = files.read(os.path.join(args.cluster_dir, args.field, 
-                                      band_name + "_coadd.fits")).coadd.map
+    map = files.read(args.coadd)
+    # apod mask
+    mask = files.read(args.coadd.replace('coadd', 'mask'))
+    map.coadd.map *= mask.masks.apod_mask
+    if args.ptsrc is not None:
         shape = np.shape(map)
-        # apod mask
-        mask = files.read(os.path.join(args.cluster_dir, args.field, 
-                                       band_name + "_mask.fits"))
-        map *= mask.masks.apod_mask
-        if args.ptsrc is not None:
-            mask = masks.srcMaskFromfile(args.ptsrc, .25, shape, 0, 
-                                         centers[args.field])
-        else:
-            mask = None
-        makeDS9ForBand(args.output, band, map, centers[args.field], 
-                       .25, 0, mask)
+        mask = masks.srcMaskFromfile(args.ptsrc, .25, shape, 0, 
+                                     centers[args.field])
+    else:
+        mask = None
+    makeDS9ForBand(args.output, 150, map, [352.5, -55],
+                   .25, 0, mask)
         
         

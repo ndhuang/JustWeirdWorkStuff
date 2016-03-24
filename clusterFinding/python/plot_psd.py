@@ -50,10 +50,11 @@ def plot1d(psd, ell, band, plotdir):
 
     pl.subplot(212)
     pl.plot(np.fft.fftshift(ell), np.mean(psd, 1))
-    pl.title('%d $l_y$ PSD' %band)
+    pl.title('%d GHz $l_y$ PSD' %band)
     pl.xlabel('$l_y$')
     pl.ylabel('K$_\mathrm{CMB}$')
 
+    pl.tight_layout()
     savename ='%d_1dpsd.png' %band
     pl.savefig(os.path.join(plotdir, savename))
     pl.close(figure)
@@ -88,4 +89,5 @@ if __name__ == '__main__':
             texfile.write(tex_2d + '\n')
             texfile.write(tex_1d + '\n')
 
-    texfile.close()
+    if texfile is not None:
+        texfile.close()

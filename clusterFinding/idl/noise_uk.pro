@@ -33,8 +33,8 @@ for i=0,nset-1 do for j=startind[i],endind[i] do $
 endif
 ;; done with fucking runlist bullshit
 
-weight_map = dblarr(8192, 8192)
-coadd_map = dblarr(8192, 8192)
+weight_map = dblarr(3360, 3360)
+coadd_map = dblarr(3360, 3360)
 
 if endind[0] - startind[0] mod 2 eq 1 then begin
    endind[0] = endind[0] - 1

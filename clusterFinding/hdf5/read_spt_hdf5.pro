@@ -15,9 +15,13 @@ function read_spt_hdf5, filename, c_map=c_map, py_map=py_map
      ;; make it look right.  doesn't work for polarization maps
      old = struct.contents
      if old.weighted_map then begin 
-        map = old.map / old.weight
-     endif else map = old.map
-     struct = {map: {map: old.map}, weight: {weight: old.weight}}
+        map = dblarr((size(old.map))[1], (size(old.map))[2])
+        good = where(old.weight gt 0)
+        map[good] = old.map[good] / old.weight[good]
+     endif else begin 
+        map = old.map
+     endelse
+     struct = {map: {map: map}, weight: {weight: old.weight}}
   endif
   return, struct
 end

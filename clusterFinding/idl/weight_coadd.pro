@@ -1,4 +1,4 @@
-pro weight_coadd, output_dir, runlist, freq
+pro weight_coadd, output_dir, freq, runlist
 ;; get shit from the runlist
 openr,lun,runlist,/get_lun
 line =''
@@ -41,7 +41,7 @@ coadd = dblarr(8192, 8192)
 
 for i = startind[0], endind[0] - 1 do begin
    print, map_files[i]
-   map = read_spt_hdf5(map_files[i], /c_map)
+   map = read_spt_hdf5(map_files[i], /py_map)
    coadd += map.map.map * map.weight.weight
    weight += map.weight.weight[*, *, 0, 0]
    ;; print, map_files[i]
@@ -64,10 +64,11 @@ add_bintab_to_fits, coadd_fits_file, coadd_struct, 'coadd'
 
 ;; if the coadd save file exists, restore it and overwrite with new data
 if file_test(coadd_save_file) eq 1 then restore, coadd_save_file $
-else maps = dblarr(8192, 8192, 2)
+else maps = dblarr(3360, 3360, 2)
 
 if freq eq 90 then maps[*, *, 0] = coadd $
 else maps[*, *, 1] = coadd
 save, maps, filename = coadd_save_file
+;; save, coadd, filename = '/data/ndhuang/test/clusters/' + freq_name + '_coadd.sav'
 CREATE_APODIZATION_MASKS, weight, mask_output_file, threshold=.8
 end
