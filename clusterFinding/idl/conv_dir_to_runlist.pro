@@ -4,9 +4,10 @@ pro conv_dir_to_runlist, directory, freq
 ;; bstub='/maps/map_'
 ;; estub='.fits'
 ;; fstubs=['150']
-bstr = directory + '/' + strtrim(string(freq, '(I03)'), 2) + '/'
-list = file_search(bstr + 'bundle*.fits')
-ofile = bstr + 'runlist.txt'
+;; bstr = directory + '/' + strtrim(string(freq, '(I03)'), 2) + '/'
+bstr = directory
+list = file_search(bstr + '*' +  strtrim(string(freq, '(I03)'), 2) + '*.h5')
+ofile = bstr + 'runlist_' + strtrim(string(freq, '(I03)'), 2) + 'ghz.txt'
     
 len = strlen(bstr)
 nl=n_elements(list)

@@ -1,4 +1,4 @@
-pro noise_uk, coadd_dir, freq, texfile=texfile
+pro noise_uk, coadd_dir, freq, texfile=texfile, npix=npix
 sfreq = strtrim(string(freq, format = '(I03)'),2)
 freq_name =  sfreq + 'ghz'
 mask_file = coadd_dir + '/' +  freq_name + '_mask.fits'
@@ -33,16 +33,18 @@ for i=0,nset-1 do for j=startind[i],endind[i] do $
 endif
 ;; done with fucking runlist bullshit
 
-weight_map = dblarr(3360, 3360)
-coadd_map = dblarr(3360, 3360)
-
 if endind[0] - startind[0] mod 2 eq 1 then begin
    endind[0] = endind[0] - 1
 endif
 rand = randomu(seed, endind[0] - startind[0])
 rand_inds = sort(rand) + 1
 for i = 0, endind[0] - startind[0] - 1 do begin
-   map = read_spt_hdf5(filenames[rand_inds[i]], /c_map)
+   map = read_spt_hdf5(filenames[rand_inds[i]], /py_map)
+   if i eq 0 then begin
+      size = size(map.map.map, /dimensions)
+      weight_map = dblarr(size[0], size[1])
+      coadd_map = dblarr(size[0], size[1])
+   endif
    if i mod 2 eq 1 then begin
       coadd_map += map.map.map * map.weight.weight
    endif else begin
@@ -64,4 +66,7 @@ endif else begin
    printf, lun, sfreq + " & " + strtrim(string(noise_uk, format = '(F0.3)')) + "\\"
    free_lun, lun
 endelse
+if keyword_set(npix) then begin
+   npix = size
+endif
 end

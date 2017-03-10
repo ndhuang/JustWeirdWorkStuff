@@ -3,12 +3,12 @@ import re
 from field_centers import centers
 
 output_tag = 'clustermap'
-# output_dir = '/mnt/rbfa/ndhuang/maps/clusters/ra3hdec-35/'
+output_dir = '/mnt/rbfa/ndhuang/maps/clusters/ra5hdec-35/'
+# output_dir = '/data53/ndhuang/ra23h30dec-55/T_only'
 log_dir = os.path.join(output_dir, 'logs')
-output_dir = '/data53/ndhuang/ra23h30dec-55/T_only'
 map_subdir = 'maps'
 script_name = os.path.join(output_dir, 'cluster_map_script.sh')
-field = 'ra23h30dec-55'
+field = 'ra5hdec-35'
 try:
     ra0, dec0 = centers[field]
 except KeyError:
@@ -21,8 +21,8 @@ except KeyError:
 
 script_template = string.Template('/home/ndhuang/spt_code/sptpol_cdevel/mapping/scanmap_sim.x -i $input_file -doreal $output_file -n1 8192 -n2 8192 -reso_arcmin 0.25 -ra0 $ra0 -dec0 $dec0 -proj 0 -poly 7 -spatial 0 -nmap 1 -elllpf 20000 -maskedellhpf 400 -o dummy -do_by_wedge -bb_deep_flags -norm_map -is_not_pol -ptsrc $point_source_file 2>&1|tee $log_file')
 
-point_source_file = '/home/ndhuang/spt_code/sptpol_software/config_files/ptsrc_config_5mJy_ra23h30dec-55_20140129_150ghz_withFlux.txt'
-# point_source_file = '/home/ndhuang/spt_code/sptpol_software/config_files/ptsrc_config_ra3hdec-35_for_ndh.txt'
+# point_source_file = '/home/ndhuang/spt_code/sptpol_software/config_files/ptsrc_config_5mJy_ra23h30dec-55_20140129_150ghz_withFlux.txt'
+point_source_file = '/home/ndhuang/spt_code/sptpol_software/config_files/ptsrc_config_ra5hdec-35_combined.txt'
 stuff_to_do = {'make_script':1,
                'make_maps':  False}
 
@@ -35,8 +35,8 @@ if stuff_to_do['make_script']:
     shutil.copy(__file__, output_dir)
 
     # make the script
-    input_folder = '/data53/scratch/sptdat/ra23h30dec-55/data/'
-    # input_folder = '/mnt/rbfa/ndhuang/auxdata/idf/ra3hdec-35/data'
+    # input_folder = '/data53/scratch/sptdat/ra23h30dec-55/data/'
+    input_folder = '/mnt/rbfa/ndhuang/auxdata/idf/ra5hdec-35/data'
     input_files = glob.glob(os.path.join(input_folder, '*.h5'))
     regex = re.compile('(ra\d+h\d*dec-\d+)_idf_(\d{8}_\d{6})_(\d{3}ghz)')
     out_str = '#!/bin/bash\n\nulimit -s 32768\n\n'

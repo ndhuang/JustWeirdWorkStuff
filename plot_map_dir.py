@@ -7,6 +7,7 @@ from matplotlib import pyplot as pl
 from sptpol_software.util import files
 
 def plot(mapfile, plot_dir):
+    print mapfile
     m = files.read(mapfile)
     m.removeWeight()
     f = pl.figure()

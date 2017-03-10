@@ -34,14 +34,17 @@ coadd_save_file = output_dir + '/coadd.sav'
 mask_output_file = output_dir + '/' + freq_name + '_mask.fits'
 ;; map_files = file_search(map_dir)
 map_files = filenames
-weight = dblarr(8192, 8192)
-coadd = dblarr(8192, 8192)
 
 ;; mask = read_spt_fits('/data39/ndhuang/clusters/ra23h30dec-55/run1/bundles/abbys_bundles/mask_150ghz.fits')
 
 for i = startind[0], endind[0] - 1 do begin
    print, map_files[i]
    map = read_spt_hdf5(map_files[i], /py_map)
+   if i eq startind[0] then begin
+      size = size(map.map.map, /dimensions)
+      weight = dblarr(size[0], size[1])
+      coadd = dblarr(size[0], size[1])
+   endif
    coadd += map.map.map * map.weight.weight
    weight += map.weight.weight[*, *, 0, 0]
    ;; print, map_files[i]
@@ -64,7 +67,7 @@ add_bintab_to_fits, coadd_fits_file, coadd_struct, 'coadd'
 
 ;; if the coadd save file exists, restore it and overwrite with new data
 if file_test(coadd_save_file) eq 1 then restore, coadd_save_file $
-else maps = dblarr(3360, 3360, 2)
+else maps = dblarr(size[0], size[1], 2)
 
 if freq eq 90 then maps[*, *, 0] = coadd $
 else maps[*, *, 1] = coadd

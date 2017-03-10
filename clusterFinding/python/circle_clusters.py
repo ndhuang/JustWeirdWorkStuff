@@ -134,7 +134,7 @@ if __name__ == '__main__':
     if args.plotname.endswith('.png'):
         args.plotname = args.plotname[:-4]
     for b in args.band:
-        c = clusterCircler(args.field, b, args.plotname, clusterdir = '/mnt/rbfa/ndhuang/maps/clusters/', maskfile = args.ptsrc)
+        c = clusterCircler(args.field, b, args.plotname, clusterdir = '/mnt/rbfa/ndhuang/maps/clusters/run2_semi_good_ps/', maskfile = args.ptsrc)
     # fig = c.getFig()
     # pl.imshow(c.contour, interpolation = 'None', cmap = cm.gray)
     # pl.show()

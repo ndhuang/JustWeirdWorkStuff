@@ -19,22 +19,32 @@ def getStats(map, w_thresh = .3, rem_weight = False):
     # rms is calculated on a map smoothed with a 1-arcmin box car
     # only take points where weight > threshold
     # remove the weight first
-    if rem_weight:
-        not_zero = np.nonzero(map.Map.weight_map)
-        map.Map.real_map_T = (map.Map.real_map_T[not_zero] / 
-                              map.Map.weight_map[not_zero])
-    smooth_w = filters.uniform_filter(map.Map.weight_map, size = 4)
-    smooth_T = filters.uniform_filter(map.Map.real_map_T, size = 4)
-    if len(np.shape(map.Map.weight_map)) > 2:
-        good = np.where(map.Map.weight_map[:,:, 0, 0] > w_thresh)
-    else:
-        good = np.where(map.Map.weight_map > w_thresh)
-    # if np.shape(good)[1] == 0:
-    #     # no good indices...
-    #     raise ValueError('%s has no weights greater than %d!'
-    #                      %(map.from_filename, w_thresh)) 
-    med_w = np.median(map.Map.weight_map[good])
-    tot_w = np.sum(map.Map.weight_map[good])
+    
+    # This is for pure c maps, not loaded into a map object
+    # if rem_weight:
+    #     not_zero = np.nonzero(map.Map.weight_map)
+    #     map.Map.real_map_T = (map.Map.real_map_T[not_zero] / 
+    #                           map.Map.weight_map[not_zero])
+    # smooth_w = filters.uniform_filter(map.Map.weight_map, size = 4)
+    # smooth_T = filters.uniform_filter(map.Map.real_map_T, size = 4)
+    # if len(np.shape(map.Map.weight_map)) > 2:
+    #     # for polarized maps
+    #     good = np.where(map.Map.weight_map[:,:, 0, 0] > w_thresh)
+    # else:
+    #     good = np.where(map.Map.weight_map > w_thresh)
+    # med_w = np.median(map.Map.weight_map[good])
+    # tot_w = np.sum(map.Map.weight_map[good])
+    # rms = np.sqrt(np.sum(smooth_T[good]**2))
+    
+    # This is for sptpol-style map objects
+    if map.weighted_map:
+        map.removeWeight()
+    smooth_w = filters.uniform_filter(map.weight, size = 4)
+    smooth_T = filters.uniform_filter(map.map, size = 4)
+    good = np.where(map.weight > w_thresh)
+    
+    med_w = np.median(map.weight[good])
+    tot_w = np.sum(map.weight[good])
     rms = np.sqrt(np.sum(smooth_T[good]**2))
     return {map.from_filename: {'rms': rms, 'med_w': med_w, 'tot_w': tot_w}}
 
@@ -195,6 +205,8 @@ if __name__ == '__main__':
     parser.add_argument('--tex-file', type = str, default = None,
                         help = 'Write output to a tex file rather than stdout')
     parser.add_argument('--downsampled', action = 'store_true')
+    # parser.add_argument('--bad-file' type = str, default = None,
+    #                     help = "A file in which to record \"bad\" maps, and why they were cut")
     args = parser.parse_args()
     if args.band is None:
         args.band = ['150ghz', '090ghz']

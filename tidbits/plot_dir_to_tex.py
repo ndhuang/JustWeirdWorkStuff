@@ -8,9 +8,9 @@ figtitle_tmpl = '\\begin{figure}\n\
     \\includegraphics[height=.4\\textheight]{%(fig_file)s}\n\
 \\end{figure}\n'
 
-fig_tmpl = '\\begin{figure}\n\
+fig_tmpl = '\\begin{figure}[h]\n\
     \\centering\n\
-    \\includegraphics[height=.4\\textheight]{%(fig_file)s}\n\
+    \\includegraphics[height=.3\\textheight]{%(fig_file)s}\n\
 \\end{figure}\n'
 
 preamble_tmpl = '\\documentclass{article}\n\
