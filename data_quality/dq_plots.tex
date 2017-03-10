@@ -1,0 +1,44 @@
+\documentclass{article}
+\usepackage[landscape,margin=.5in]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\graphicspath{{/home/sptdat/public_html/data_quality/monthly_plots/lastweek/}}
+\newcommand{\figtitle}[1]{
+  {
+    \centering
+    \Huge\textbf{#1}
+    \par\medskip
+  }
+}
+
+\begin{document}
+\begin{figure}
+    \figtitle{Live Bolos from Calibrator}
+    \includegraphics[width=\linewidth]{live_bolos_cal.png}
+\end{figure}
+\begin{figure}
+  \figtitle{Calibrator Response}
+  \includegraphics[width=\linewidth]{median_cal_response.png}
+\end{figure}
+\begin{figure}
+  \figtitle{Live Bolos from Elnod}
+  \includegraphics[width=\linewidth]{live_bolos_elnod.png}
+\end{figure}
+\begin{figure}
+  \figtitle{Elnod Response}
+  \includegraphics[width=\linewidth]{median_elnod_response.png}
+\end{figure}
+\begin{figure}
+  \figtitle{Noise, 5-9 Hz}
+  \includegraphics[width=\linewidth]{noise_5to9.png}
+\end{figure}
+\begin{figure}
+  \figtitle{Noise, 9-11 Hz}
+  \includegraphics[width=\linewidth]{noise_9to11.png}
+\end{figure}
+\begin{figure}
+  \figtitle{Nonlinearity (Elevation Dependent Gain)}
+  \includegraphics[width=\linewidth]{median_response_change.png}
+\end{figure}
+\end{document}
