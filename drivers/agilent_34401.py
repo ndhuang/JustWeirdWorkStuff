@@ -1,4 +1,5 @@
-import signal, glob, time, os
+import signal, glob, time, os, sys
+import time
 from datetime import datetime
 from multiprocessing import Process, Queue
 import numpy as np
@@ -18,7 +19,7 @@ class Agilent_DMM(RS232):
         
     def cleanup(self, signum, frame):
         '''
-        Clean up the stub data files.  Combine the into one file.
+        Clean up the stub data files.  Combine them into one file.
         '''
         self.dev.close()
         files = glob.glob(self.filename + '*.npy')
@@ -78,16 +79,21 @@ class Agilent_DMM(RS232):
             i += 1
 
 if __name__ == '__main__':
-    dev = '/dev/ttyS0' # find this using dmesg command
-    queue = Queue()
-    data_dir = '/home/sptdaq/Agilent-34401/%s' \
-        %datetime.utcnow().strftime('%Y%m%d_%H%M')
-    if not os.path.exists(data_dir):
-        os.makedirs(data_dir)
-    dmm = Agilent_DMM(dev, os.path.join(data_dir, 'data'))
+    dev = '/dev/ttyUSB2' # find this using dmesg command
+    # queue = Queue()
+    # data_dir = '/home/sptdaq/Agilent-34401/%s' \
+    #     %datetime.utcnow().strftime('%Y%m%d_%H%M')
+    # if not os.path.exists(data_dir):
+    #     os.makedirs(data_dir)
+    # dmm = Agilent_DMM(dev, os.path.join(data_dir, 'data'))
+    dmm = Agilent_DMM(dev, '/dev/null')
     dmm.remote()
-    dmm.intTrigger()
-    dmm.voltage(-5, 5)
+    f = open(sys.argv[1], 'a')
+    # dmm.intTrigger()
+    # dmm.voltage(-5, 5)
     # dmm.send("INIT")
-    # dmm.send("READ?")
+    time.sleep(1)
+    while True:
+        dmm.send("MEAS:VOLT:DC? -10, 10")
+        f.write('{}\t{}'.format(time.time(), dmm.readline()))
     # dmm.listenAndWrite(queue)
