@@ -10,9 +10,33 @@ import serial
 from rs232 import RS232
 
 class Lakeshore_218(RS232):
+    '''
+    Talk to Lakeshore 218 diode readout boxes.
+    '''
     def __init__(self, dev, filename, config_file = None,
                  buffer_size = 128, eol = '\r\n', wait_time = .05,
                  baudrate = 9600, parity = serial.PARITY_ODD, **kwargs):
+        '''
+        dev: str
+            The device node name (typically /dev/ttyS0, or /dev/ttyUSB0, or similar)
+        filename: str
+            The output filename
+        config_file: str
+            The config file that provides channel mappings.  Should be in a 
+            directory called 'configs' in the working directory.
+        buffer_size: int, optional [128]
+            The number of samples per channel to store in memory before writing to disk.
+            This parameter is a balance between getting data onto disk quickly (for things
+            like KST), and IO performance.
+
+        The following parameters are configurations for the serial communication.  
+        Probably don't change them.
+
+        eol: str, optional ['\r\n']
+        wait_time: float, optional [0.05]
+        baudrate: int, optional [9600]
+        parity: int, optional [serial.PARITY_ODD]
+        '''
 
         if config_file is None:
             self.channel_names = range(1, 9)
@@ -82,6 +106,10 @@ class Lakeshore_218(RS232):
         return filenum + 1
 
     def simple_write(self):
+        '''
+        Unbuffered reading (temps) and writing to file.  Creates a new file
+        every ~24 hours.
+        '''
         filenum = self.find_filenum('txt')
         self.f = open('{fname}_{fnum:d}.txt'.format(fname = self.filename,
                                                     fnum = filenum), 'w')
@@ -161,6 +189,10 @@ class Lakeshore_218(RS232):
         return val
 
     def setup_for_window(self):
+        '''
+        Configures the box for 2.5V diodes with the generic calibration curve, 
+        and turns on display for all channels.
+        '''
         for ch in self.channels:
             # Display all channels in order
             self.send('DISPFLD {ch:d},{ch:d},1'.format(ch = ch))
