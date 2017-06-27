@@ -82,7 +82,7 @@ for isim = 0, nsims - 1 do begin
     profilefile='/home/ndhuang/code/clusterFinding/profiles/profiles_12_beta1_rc025_rc300.sav'
     ptsrc_file = '/home/ndhuang/spt_code/sptpol_software/config_files/ptsrc_config_ra23h30dec-55_surveyclusters.txt'
     ; setup outputs
-    outputdir = data_dir + '/field_scaling/clusterfind_sim/run' + strtrim(isim, 2) + '/'
+    outputdir = data_dir + '/field_scaling/clusterfind_sim_120amnoiseband/run' + strtrim(isim, 2) + '/'
     file_mkdir, outputdir
     save, maps, filename = outputdir + '/coadd_' + strtrim(isim, 2) + '.sav'
     savefile = outputdir+'/clusters_3-sigma.sav'
@@ -94,15 +94,15 @@ for isim = 0, nsims - 1 do begin
     clusterfind_autotools_nonoise, coadd_file, radec0, maskfile, cmbfile, $
                                    profilefile, ptsrc_file, noise1sig, proj, savefile, $
                                    beams = [1.7, 1.14], psd=psdfiles, savemem=0,$
-                                   fileksz=fileksz,/saveall, savefileall=savefileall,$
+                                   fileksz=fileksz, savefileall=savefileall,$
                                    hpf=f_hi, lpf = f_low, isohpf = isohpf, $
                                    calfacs=[1., 1.], psmask_arcmin = 4., minrad_ps = 8,$
-                                   noise_bandsize_arcmin = 90,$
+                                   noise_bandsize_arcmin = 120,$
                                    onlyuse=onlyuse,bands=[90, 150],szbands=szbands, $
                                    filt_area_file = filt_area_file, $
                                    szmaps_file = sz_maps_file, sigmaps = szmaps, /cambcl
     ; make simple text file (for xmatch.pro)
-    restore, savefileall
+    restore, savefile
     openw, lun, outputdir + '/ClusterCat_twoband_' + strtrim(isim, 2) + '.dat', /get_lun
     nout = n_elements(outtemp_2band)
     os = outtemp_2band
