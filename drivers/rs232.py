@@ -5,9 +5,11 @@ class RS232(object):
         self.eol = eol
 
     def readline(self):
-        return self.dev.readline()
+        return self.dev.readline().strip(self.eol)
 
-    def send(self, msg):
+    def send(self, msg, debug = False):
         if not msg.endswith(self.eol):
             msg = msg + self.eol
+        if debug:
+            print msg
         self.dev.write(msg)
